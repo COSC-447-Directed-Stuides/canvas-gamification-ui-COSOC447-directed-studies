@@ -6,44 +6,63 @@
         {{ course?.name }}
     </h1>
 
+<!--    TODO: Make this message customizable in the backend       -->
+
     <h2
         [class.tui-skeleton]="!course"
         class="tui_text_h4"
     >Welcome to COSC 111 with Professor John Johnson. I hope you enjoy my course.
     </h2>
 
-    <div class="container">
-
-        <div class="tui-row">
-            <tui-island class="tui-island_hoverable">
+    <div class="tui-container">
+        <div class="tui-row tui-space_top-10">
+            <tui-island class="tui-island_hoverable tui-space_right-10 course-tile" size="m"
+                        (click)="onPracticeClick()">
                 <h3 class="tui-island__title">Practice</h3>
                 <p class="tui-island__paragraph">Go here for practice</p>
             </tui-island>
 
-            <tui-island class="tui-island_hoverable">
+            <tui-island class="tui-island_hoverable tui-space_right-10 course-tile" size="m">
                 <h3 class="tui-island__title">Assignments</h3>
-                <p class="tui-island__paragraph">Go here for practice</p>
+                <p class="tui-island__paragraph">Go here for assignments</p>
             </tui-island>
 
-            <tui-island class="tui-island_hoverable size1">
+            <tui-island class="tui-island_hoverable tui-space_right-10 course-tile" size="m">
                 <h3 class="tui-island__title">Challenges</h3>
-                <p class="tui-island__paragraph">Go here for practice</p>
+                <p class="tui-island__paragraph">Go here for challenges</p>
             </tui-island>
         </div>
 
-        <div class="tui-row">
-            <tui-island class="tui-island_hoverable">
-                <h3 class="tui-island__title">Leaderboard and Statistics</h3>
-                <p class="tui-island__paragraph">Go here for practice</p>
+        <div class="tui-row tui-space_top-10">
+            <tui-island class="tui-island_hoverable tui-space_right-10 course-tile" size="m">
+                <h3 class="tui-island__title">Leaderboard
+                    and Statistics</h3>
+                <p class="tui-island__paragraph">Go here for leaderboard and statistics</p>
             </tui-island>
 
-            <tui-island class="tui-island_hoverable">
+            <tui-island class="tui-island_hoverable tui-space_right-8 course-tile" size="m">
                 <h3 class="tui-island__title">Tokens</h3>
-                <p class="tui-island__paragraph">Go here for practice</p>
+                <p class="tui-island__paragraph">Go here for tokens</p>
             </tui-island>
+
+            <div class="tui-col_3" >
+                <button class="tui-space_bottom-10 course-button"
+                    tuiButton
+                >
+                    Featured Activity
+                </button>
+                <button class="course-button"
+                    tuiButton
+                >
+                    Continue Practice
+                </button>
+            </div>
+
         </div>
+
     </div>
 
+<!--    class="tui-space_right-15"-->
     <!--    <tui-tabs-with-more #tabsComponent [class.tui-skeleton]="!course" [moreContent]="more" class="tui-space_bottom-4">-->
     <!--        <button *tuiTab aria-label="Concept Map" tuiTab>Concept Map</button>-->
     <!--        &lt;!&ndash;        disable the question tabs for now. Should only be visible to admins &ndash;&gt;-->

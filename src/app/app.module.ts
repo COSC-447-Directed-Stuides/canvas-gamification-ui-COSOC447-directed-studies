@@ -66,6 +66,7 @@ import {CodeEditorModule} from '@app/components/code-editor/code-editor.module'
 import {FooterModule} from '@app/components/footer/footer.module'
 import {NgDompurifySanitizer} from '@tinkoff/ng-dompurify'
 import {SidebarModule} from '@app/components/sidebar/sidebar.module'
+import {CourseModule} from "@app/course/course.module"
 
 @NgModule({
     declarations: [
@@ -96,6 +97,7 @@ import {SidebarModule} from '@app/components/sidebar/sidebar.module'
         CommonModule,
         ContactModule,
         CourseIslandModule,
+        CourseModule,
         FaqAccordionModule,
         FooterModule,
         FormsModule,
