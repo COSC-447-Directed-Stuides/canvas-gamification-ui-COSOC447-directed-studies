@@ -18,7 +18,7 @@
         ></tui-tag>
         <div class="tui-form__buttons">
             <a
-                *ngIf = "user.is_teacher"
+                *ngIf = "user.is_teacher && endDate < currentDate"
                 appearance="primary"
                 [routerLink]="['/course', course.id]"
                 class="tui-form__button"
@@ -28,7 +28,7 @@
                 View
             </a>
             <a
-                *ngIf="hasViewPermission && endDate > currentDate && user.is_student"
+                *ngIf="hasViewPermission && endDate > currentDate"
                 appearance="primary"
                 [routerLink]="['/course', course.id]"
                 class="tui-form__button"
@@ -46,6 +46,14 @@
                 tuiButton
             >
                 Register
+            </a>
+            <a
+                *ngIf = "user.is_student && endDate < currentDate"
+                appearance="primary"
+                [routerLink]="['/course', course.id]"
+                class="tui-form__button"
+                size="m"
+            >
             </a>
         </div>
     </ng-container>
