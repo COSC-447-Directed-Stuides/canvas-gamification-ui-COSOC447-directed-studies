@@ -8,6 +8,7 @@ import {CourseEventCreateEditComponent} from "@app/course/course-event-create/co
 import {CourseQuestionSnippetComponent} from "@app/course/course-question-snippet/course-question-snippet.component"
 import {ProblemViewComponent} from "@app/problems/problem-view/problem-view.component"
 import {PracticeProblemComponent} from "@app/course/practice-problem/practice-problem.component"
+import {CoursePracticeComponent} from "@app/course/course-practice/course-practice.component"
 
 const routes = [
     {
@@ -33,6 +34,11 @@ const routes = [
     {
         path: ':courseId/new-event/:eventId',
         component: CourseEventCreateEditComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: ':courseId/practice',
+        component: CoursePracticeComponent,
         canActivate: [AuthGuard]
     },
     {

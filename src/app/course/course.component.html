@@ -6,36 +6,47 @@
         {{ course?.name }}
     </h1>
 
-    <tui-tabs-with-more #tabsComponent [class.tui-skeleton]="!course" [moreContent]="more" class="tui-space_bottom-4">
-        <button *tuiTab aria-label="Concept Map" tuiTab>Concept Map</button>
-        <!--        disable the question tabs for now. Should only be visible to admins -->
-        <button *tuiTab aria-label="Questions" tuiTab disabled>Questions</button>
-        <button *tuiTab aria-label="Events" tuiTab disabled>Events</button>
-        <button *tuiTab aria-label="Token Use" tuiTab disabled>Token Use</button>
-        <button *tuiTab aria-label="Leaderboard" tuiTab disabled>Leaderboard</button>
-        <!--        add another tab: Challenges -->
-        <button *tuiTab aria-label="Challenges" tuiTab disabled>Challenges</button>
-    </tui-tabs-with-more>
-    <ng-container *ngIf="tabsComponent.activeItemIndex === 0">
-        <app-concept-map [currCourse]="course"></app-concept-map>
-    </ng-container>
-    <ng-container *ngIf="tabsComponent.activeItemIndex === 1">
-        <app-course-question-snippet [questions]="course?.question_set" [uqjs]="course?.uqjs">
-        </app-course-question-snippet>
-    </ng-container>
-    <ng-container *ngIf="tabsComponent.activeItemIndex === 2">
-        <app-course-events-snippet [course]="course" [events]="course?.events">
-        </app-course-events-snippet>
-    </ng-container>
-    <ng-container *ngIf="tabsComponent.activeItemIndex === 3">
-        <app-token-use-snippet [courseReg]="course?.course_reg"></app-token-use-snippet>
-    </ng-container>
-    <ng-container *ngIf="tabsComponent.activeItemIndex === 4">
-        <app-leader-board [leaderBoard]="course?.leader_board" [rankTopX]="3"></app-leader-board>
-    </ng-container>
-    <ng-container *ngIf="tabsComponent.activeItemIndex === 5">
-        <app-course-challenge-snippet [course]="course" [events]="course?.events"></app-course-challenge-snippet>
-    </ng-container>
+    <!--    TODO: Make this message customizable in the backend       -->
+
+    <h2
+        [class.tui-skeleton]="!course"
+        class="tui_text_h4"
+    >Welcome to COSC 111 with Professor John Johnson. I hope you enjoy my course.
+    </h2>
+
+    <div class="tui-container">
+        <div class="tui-row tui-space_top-10">
+            <tui-island class="tui-island_hoverable tui-space_right-10 course-tile" size="m"
+                        (click)="onPracticeClick()">
+                <h3 class="tui-island__title">Practice</h3>
+                <p class="tui-island__paragraph">Go here for practice</p>
+            </tui-island>
+
+            <tui-island class="tui-island_hoverable tui-space_right-10 course-tile" size="m">
+                <h3 class="tui-island__title">Assignments</h3>
+                <p class="tui-island__paragraph">Go here for assignments</p>
+            </tui-island>
+
+            <tui-island class="tui-island_hoverable tui-space_right-10 course-tile" size="m">
+                <h3 class="tui-island__title">Challenges</h3>
+                <p class="tui-island__paragraph">Go here for challenges</p>
+            </tui-island>
+        </div>
+
+        <div class="tui-row tui-space_top-10">
+            <tui-island class="tui-island_hoverable tui-space_right-10 course-tile" size="m">
+                <h3 class="tui-island__title">Leaderboard
+                    and Statistics</h3>
+                <p class="tui-island__paragraph">Go here for leaderboard and statistics</p>
+            </tui-island>
+
+            <tui-island class="tui-island_hoverable tui-space_right-8 course-tile" size="m">
+                <h3 class="tui-island__title">Tokens</h3>
+                <p class="tui-island__paragraph">Go here for tokens</p>
+            </tui-island>
+        </div>
+
+    </div>
 </section>
 <ng-template #more>
     <tui-svg src="tuiIconMoreHorLarge"></tui-svg>
