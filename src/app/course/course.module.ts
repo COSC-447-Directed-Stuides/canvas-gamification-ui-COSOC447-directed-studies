@@ -48,8 +48,12 @@ import {
     TuiTextfieldControllerModule
 } from '@taiga-ui/core'
 import {TextMaskModule} from 'angular2-text-mask'
-import {CourseRegistrationStepperComponent} from './course-registration/course-registration-stepper/course-registration-stepper.component'
-import {CourseRegistrationStepComponent} from './course-registration/course-registration-step/course-registration-step.component'
+import {
+    CourseRegistrationStepperComponent
+} from './course-registration/course-registration-stepper/course-registration-stepper.component'
+import {
+    CourseRegistrationStepComponent
+} from './course-registration/course-registration-step/course-registration-step.component'
 import {TuiActiveZoneModule, TuiFilterPipeModule} from '@taiga-ui/cdk'
 import {TuiTableModule} from '@taiga-ui/addon-table'
 import {DragulaModule} from 'ng2-dragula'
@@ -60,6 +64,7 @@ import {ProblemsModule} from '@app/problems/problems.module'
 import {TuiSidebarModule} from '@taiga-ui/addon-mobile'
 import {SidebarModule} from '@app/components/sidebar/sidebar.module'
 import {CourseChallengeSnippetComponent} from './course-challenge-snippet/course-challenge-snippet.component'
+import {CoursePracticeComponent} from './course-practice/course-practice.component'
 
 @NgModule({
     declarations: [
@@ -69,6 +74,7 @@ import {CourseChallengeSnippetComponent} from './course-challenge-snippet/course
         CourseEventCreateEditComponent,
         CourseEventsSnippetComponent,
         CourseListComponent,
+        CoursePracticeComponent,
         CourseQuestionSnippetComponent,
         CourseRegisterComponent,
         CourseRegistrationStepComponent,
@@ -76,7 +82,6 @@ import {CourseChallengeSnippetComponent} from './course-challenge-snippet/course
         LeaderBoardComponent,
         PracticeProblemComponent,
         TokenUseSnippetComponent,
-
     ],
     imports: [
         CommonModule,
