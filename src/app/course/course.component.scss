@@ -1,8 +1,32 @@
-.course-tile{
+@import '~@taiga-ui/core/styles/taiga-ui-local';
+
+.course-tile {
     width: 200px;
     height: 200px;
+    overflow: hidden;
 }
 
-.course-button{
+.course-button {
     width: 220px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.test {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.course-background {
+    width: calc(100% + 2 * var(--tui-padding-l));
+    height: calc(3 * var(--tui-padding-l));
+    margin-top: calc(-1 * var(--tui-padding-l));
+    margin-left: calc(-1 * var(--tui-padding-l));
+    @include tui-space(bottom, 3);
+    background-color: orchid;
 }
