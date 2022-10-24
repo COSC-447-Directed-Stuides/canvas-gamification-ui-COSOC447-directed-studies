@@ -51,7 +51,7 @@ import {
     TuiInputCountModule,
     TuiIslandModule,
     TuiMarkerIconModule,
-    TuiRadioBlockModule,
+    TuiRadioBlockModule, TuiTagModule,
     TuiToggleModule
 } from '@taiga-ui/kit'
 import {TuiSidebarModule} from '@taiga-ui/addon-mobile'
@@ -130,6 +130,7 @@ import {StatisticsComponent} from './components/statistics/statistics.component'
         TuiSvgModule,
         TuiTableModule,
         TuiTablePaginationModule,
+        TuiTagModule,
         TuiThemeNightModule,
         TuiToggleModule
     ],

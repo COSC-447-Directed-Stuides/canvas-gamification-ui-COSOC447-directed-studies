@@ -1,0 +1,18 @@
+@import '~@taiga-ui/core/styles/taiga-ui-local';
+@import "mixins";
+
+.course-islands {
+    @include island-grid();
+}
+
+.more-courses-island {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stats_class:hover {
+    background-color: white;
+    color: black;
+}
