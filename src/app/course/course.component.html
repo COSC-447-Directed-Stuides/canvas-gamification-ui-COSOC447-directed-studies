@@ -6,8 +6,6 @@
         {{ course?.name }}
     </h1>
 
-    <!--    TODO: Make this message customizable in the backend       -->
-
     <h2
         [class.tui-skeleton]="!course"
         class="tui_text_h4"
@@ -15,7 +13,7 @@
     </h2>
 
     <div class="flex-container">
-        <tui-island class="tui-island_hoverable tui-space_right-10 tui-space_bottom-10 course-tile" size="m">
+        <tui-island class="tui-island_hoverable course-tile" size="m">
             <div class="course-background practice"></div>
             <h3 class="tui-island__title">Practice</h3>
             <p class="tui-island__paragraph">Go here to complete practice questions and view goals.</p>
@@ -32,7 +30,7 @@
             </div>
         </tui-island>
 
-        <tui-island class="tui-island_hoverable tui-space_right-10 tui-space_bottom-10 course-tile" size="m">
+        <tui-island class="tui-island_hoverable course-tile" size="m">
             <div class="course-background assessment"></div>
             <h3 class="tui-island__title">Assignments and Exams</h3>
             <p class="tui-island__paragraph">Go here for assignments</p>
@@ -48,7 +46,7 @@
             </div>
         </tui-island>
 
-        <tui-island class="tui-island_hoverable tui-space_right-10 tui-space_bottom-10 course-tile" size="m">
+        <tui-island class="tui-island_hoverable course-tile" size="m">
             <div class="course-background challenge"></div>
             <h3 class="tui-island__title">Challenges</h3>
             <p class="tui-island__paragraph">Go here for challenges</p>
@@ -63,11 +61,8 @@
                 </a>
             </div>
         </tui-island>
-    </div>
 
-    <div class="flex-container">
-
-        <tui-island class="tui-island_hoverable tui-space_right-10 tui-space_bottom-10 course-tile" size="m">
+        <tui-island class="tui-island_hoverable course-tile" size="m">
             <div class="course-background leaderboard"></div>
             <h3 class="tui-island__title">Leaderboard
                 and Statistics</h3>
@@ -84,7 +79,7 @@
             </div>
         </tui-island>
 
-        <tui-island class="tui-island_hoverable tui-space_right-10 tui-space_bottom-10 course-tile" size="m">
+        <tui-island class="tui-island_hoverable course-tile" size="m">
             <div class="course-background tokens"></div>
             <h3 class="tui-island__title">Tokens</h3>
             <p class="tui-island__paragraph">Go here for tokens</p>
@@ -99,7 +94,6 @@
                 </a>
             </div>
         </tui-island>
-
     </div>
 
 </section>
