@@ -1,5 +1,5 @@
 <section class="tui-container tui-container_fullwidth">
-    <div class="tui-space_top-10">
+    <div class="tui-space_top-2">
         <h1
             [class.tui-skeleton]="!course"
             class="tui-text_h3 tui-space_top-15 tui-space_bottom-2 course-name course-header"
@@ -7,7 +7,6 @@
         >
             {{ course?.name }}
         </h1>
-        <h1 class="course-header">: Practice </h1>
     </div>
     <app-concept-map [currCourse]="course"></app-concept-map>
 </section>
