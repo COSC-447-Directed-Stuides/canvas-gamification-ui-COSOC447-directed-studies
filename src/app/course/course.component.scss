@@ -1,14 +1,14 @@
 @import '~@taiga-ui/core/styles/taiga-ui-local';
 
 .course-tile {
-    border: 0 solid #000000;
-    border-radius: 10px;
+    border: 0.25rem solid #000000;
     overflow: hidden;
     cursor: default;
-    flex-basis: calc(33% - 4rem);
+    flex-basis: calc(33% - 4.5rem);
     margin: 1rem;
     // Fix this so that the items display properly
     display: flex;
+    flex-direction: column;
 }
 
 // specify container width based on screen size
@@ -24,22 +24,26 @@
     flex-direction: row;
 }
 
+.flex-space{
+    flex-grow: 3;
+}
+
 .course-background {
-    width: calc(100% + 2 * var(--tui-padding-l));
+    width: calc(100% + 4.5rem);
     height: calc(3 * var(--tui-padding-l));
     margin-top: calc(-1 * var(--tui-padding-l));
     margin-left: calc(-1 * var(--tui-padding-l));
     @include tui-space(bottom, 3);
+    justify-content: flex-start;
 }
 
 .course-view-button{
-    //position: absolute;
-    //bottom: 0;
-    //left: 0;
+    justify-content: flex-start;
+    align-self: flex-end;
 }
 
 .practice {
-    background-color: #6c86e2;
+    background-color:  rgba(112, 182, 246, 0.24);
 }
 
 .assessment {
