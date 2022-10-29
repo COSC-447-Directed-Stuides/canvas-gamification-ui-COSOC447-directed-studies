@@ -57,6 +57,5 @@ export const MOCK_VIEW_COURSE: Course = {
     uqjs: null,
     course_reg: null,
     leader_board: null,
-    has_create_event_permission: false,
-    description: ""
+    has_create_event_permission: false
 }
