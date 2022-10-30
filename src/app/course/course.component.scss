@@ -1,21 +1,17 @@
 @import '~@taiga-ui/core/styles/taiga-ui-local';
 
 .course-tile {
-    border: 0.25rem solid #000000;
+    border: 0.20rem solid #000000;
     overflow: hidden;
     cursor: default;
-    flex-basis: calc(33% - 4.5rem);
+    @media screen and (min-width: 900px) {
+        flex-basis: calc(33% - 4.5rem);
+    }
     margin: 1rem;
-    // Fix this so that the items display properly
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
 }
-
-// specify container width based on screen size
-// one flexbox
-// flex basis to set size not width
-// quick links outside flexbox
-// padding
 
 .flex-container {
     display: flex;
@@ -26,6 +22,7 @@
 
 .flex-space{
     flex-grow: 3;
+    width: 95%;
 }
 
 .course-background {
@@ -38,8 +35,6 @@
 }
 
 .course-view-button{
-    justify-content: flex-start;
-    align-self: flex-end;
 }
 
 .practice {
