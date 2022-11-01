@@ -35,7 +35,7 @@ import {
     TuiButtonModule,
     TuiDataListModule,
     TuiDialogModule,
-    TuiDropdownControllerModule,
+    TuiDropdownControllerModule, TuiFormatNumberPipeModule,
     TuiHostedDropdownModule,
     TuiLinkModule,
     TuiLoaderModule,
@@ -131,7 +131,8 @@ import {SidebarModule} from '@app/components/sidebar/sidebar.module'
         TuiTableModule,
         TuiTablePaginationModule,
         TuiThemeNightModule,
-        TuiToggleModule
+        TuiToggleModule,
+        TuiFormatNumberPipeModule
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
