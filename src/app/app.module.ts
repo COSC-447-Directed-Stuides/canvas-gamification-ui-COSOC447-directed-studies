@@ -67,7 +67,7 @@ import {CodeEditorModule} from '@app/components/code-editor/code-editor.module'
 import {FooterModule} from '@app/components/footer/footer.module'
 import {NgDompurifySanitizer} from '@tinkoff/ng-dompurify'
 import {SidebarModule} from '@app/components/sidebar/sidebar.module'
-import {TuiRingChartModule} from "@taiga-ui/addon-charts";
+import {TuiRingChartModule} from "@taiga-ui/addon-charts"
 
 @NgModule({
     declarations: [
@@ -117,6 +117,7 @@ import {TuiRingChartModule} from "@taiga-ui/addon-charts";
         TuiDialogModule,
         TuiDropdownControllerModule,
         TuiDropdownHoverModule,
+        TuiFormatNumberPipeModule,
         TuiHostedDropdownModule,
         TuiInputCountModule,
         TuiIslandModule,
@@ -126,16 +127,15 @@ import {TuiRingChartModule} from "@taiga-ui/addon-charts";
         TuiModeModule,
         TuiNotificationsModule,
         TuiRadioBlockModule,
+        TuiRingChartModule,
         TuiRootModule,
         TuiSidebarModule,
         TuiSvgModule,
         TuiTableModule,
         TuiTablePaginationModule,
-        TuiThemeNightModule,
-        TuiToggleModule,
-        TuiFormatNumberPipeModule,
         TuiTabsModule,
-        TuiRingChartModule
+        TuiThemeNightModule,
+        TuiToggleModule
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

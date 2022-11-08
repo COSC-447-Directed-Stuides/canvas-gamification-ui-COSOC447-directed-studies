@@ -11,7 +11,7 @@ import {UserActionsComponent} from '@app/components/homepage/user-actions/user-a
 import {NotFoundComponent} from '@app/components/general/not-found/not-found.component'
 import {ForbiddenComponent} from '@app/components/general/forbidden/forbidden.component'
 import {AdminComponent} from "@app/admin/admin.component"
-import {MyStatsComponent} from "@app/components/my-stats/my-stats.component";
+import {MyStatsComponent} from "@app/components/my-stats/my-stats.component"
 
 
 const routes: Routes = [

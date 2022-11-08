@@ -1,6 +1,5 @@
-import {Component, OnInit,ChangeDetectionStrategy, AfterContentInit, ChangeDetectorRef} from '@angular/core'
-import {CourseService} from '@app/course/_services/course.service'
-import {Course, STATUS} from '@app/_models'
+import {Component, OnInit,ChangeDetectionStrategy, ChangeDetectorRef} from '@angular/core'
+import {Course} from '@app/_models'
 import {QuestionCount} from "@app/_models"
 import {QuestionCountService} from "@app/admin/_services/question-count.service"
 @Component({
@@ -35,10 +34,6 @@ export class MyStatsComponent implements OnInit {
             this.questionCountDataHeader = Object.keys(questionCountData[0])
             this.openGraphDropdown = Array(questionCountData.length).fill(false)
         })
-    }
-
-    ngAfterContentInit(): void {
-        this.changeDetector.detectChanges()
     }
 
     getCountPerDifficultyValues(questionCount: { count: number, difficulty: string }[]): number[] {
