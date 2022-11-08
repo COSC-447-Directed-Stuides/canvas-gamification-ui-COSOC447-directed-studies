@@ -12,9 +12,10 @@
     justify-content: center;
 }
 
-.stats_class:hover {
-    background-color: white;
-    color: black;
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .table {

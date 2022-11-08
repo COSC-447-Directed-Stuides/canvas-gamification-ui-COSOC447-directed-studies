@@ -52,7 +52,7 @@ import {
     TuiInputCountModule,
     TuiIslandModule,
     TuiMarkerIconModule,
-    TuiRadioBlockModule,
+    TuiRadioBlockModule, TuiTabsModule,
     TuiToggleModule
 } from '@taiga-ui/kit'
 import {TuiSidebarModule} from '@taiga-ui/addon-mobile'
@@ -67,6 +67,7 @@ import {CodeEditorModule} from '@app/components/code-editor/code-editor.module'
 import {FooterModule} from '@app/components/footer/footer.module'
 import {NgDompurifySanitizer} from '@tinkoff/ng-dompurify'
 import {SidebarModule} from '@app/components/sidebar/sidebar.module'
+import {TuiRingChartModule} from "@taiga-ui/addon-charts";
 
 @NgModule({
     declarations: [
@@ -132,7 +133,9 @@ import {SidebarModule} from '@app/components/sidebar/sidebar.module'
         TuiTablePaginationModule,
         TuiThemeNightModule,
         TuiToggleModule,
-        TuiFormatNumberPipeModule
+        TuiFormatNumberPipeModule,
+        TuiTabsModule,
+        TuiRingChartModule
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
