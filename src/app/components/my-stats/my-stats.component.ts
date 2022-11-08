@@ -9,7 +9,6 @@ import {QuestionCountService} from "@app/admin/_services/question-count.service"
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MyStatsComponent implements OnInit {
-    activeCourses: Course[]
     questionCountData!: QuestionCount[]
     questionCountDataHeader!: string[]
     openGraphDropdown!: boolean[]
@@ -36,15 +35,4 @@ export class MyStatsComponent implements OnInit {
         })
     }
 
-    getCountPerDifficultyValues(questionCount: { count: number, difficulty: string }[]): number[] {
-        return questionCount.map(questionCount => questionCount.count)
-    }
-
-    getDifficultyPerCountValue(index: number, questionCount: QuestionCount): string {
-        return Number.isNaN(index) ? 'Questions' : questionCount.count_per_difficulty[index]?.difficulty
-    }
-
-    getDifficultyPerCountLabel(index: number, questionCount: QuestionCount): number {
-        return Number.isNaN(index) ? questionCount.count : questionCount.count_per_difficulty[index]?.count
-    }
 }
