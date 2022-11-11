@@ -4,8 +4,14 @@
     border: 0.20rem solid #000000;
     overflow: hidden;
     cursor: default;
-    @media screen and (min-width: 900px) {
-        flex-basis: calc(33% - 4.5rem);
+    @media screen and (min-width: 1200px) {
+        flex-basis: calc(30% - 4.5rem);
+    }
+    @media screen and (max-width: 1200px) {
+        flex-basis: calc(50% - 4.5rem);
+    }
+    @media screen and (max-width: 650px){
+        flex-basis: 100%
     }
     margin: 1rem;
     display: flex;
@@ -14,10 +20,18 @@
 }
 
 .flex-container {
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: row;
+    @media screen and (min-width: 1500px) {
+        max-width: 65%;
+    }
+    @media screen and (min-width: 750px) and (max-width: 1200px) {
+        max-width: 85%;
+    }
+    position: relative;
 }
 
 .flex-space{
@@ -31,10 +45,7 @@
     margin-top: calc(-1 * var(--tui-padding-l));
     margin-left: calc(-1 * var(--tui-padding-l));
     @include tui-space(bottom, 3);
-    justify-content: flex-start;
-}
-
-.course-view-button{
+    //justify-content: flex-start;
 }
 
 .practice {
