@@ -1,12 +1,48 @@
 <section class="tui-container tui-container_fullwidth">
-    <div class="tui-space_top-2">
+    <div class="course-banner">
         <h1
             [class.tui-skeleton]="!course"
-            class="tui-text_h3 tui-space_top-15 tui-space_bottom-2 course-name course-header"
-            (click)="onCourseNameClick()"
+            class="tui-text_h3 tui-space_top-2 tui-space_bottom-2 tui-space_left-2"
         >
             {{ course?.name }}
         </h1>
     </div>
-    <app-concept-map [currCourse]="course"></app-concept-map>
+
+    <div class="flex-container">
+        <tui-island class="tui-island_hoverable practice-tile" size="m">
+            <div class="course-background practice-question"></div>
+            <h3 class="tui-island__title">Practice Questions</h3>
+            <p class="tui-island__paragraph flex-space">Select questions from the concept map to practice questions in a specific category.</p>
+            <div class="course-view-button tui-space_top-3">
+                <a
+                    appearance="primary"
+                    [routerLink]="['practice']"
+                    class="tui-form__button"
+                    size="m"
+                    tuiButton
+                >
+                    Practice
+                </a>
+            </div>
+        </tui-island>
+
+        <tui-island class="tui-island_hoverable practice-tile" size="m">
+            <div class="course-background view-goals"></div>
+            <h3 class="tui-island__title">View Goals</h3>
+            <p class="tui-island__paragraph flex-space">View and create goals for this course.</p>
+            <div class="course-view-button tui-space_top-3">
+                <a
+                    appearance="primary"
+                    [routerLink]="['practice']"
+                    class="tui-form__button"
+                    size="m"
+                    tuiButton
+                >
+                    View
+                </a>
+            </div>
+        </tui-island>
+
+    </div>
+
 </section>

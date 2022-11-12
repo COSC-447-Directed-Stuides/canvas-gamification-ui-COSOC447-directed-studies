@@ -9,6 +9,7 @@ import {CourseQuestionSnippetComponent} from "@app/course/course-question-snippe
 import {ProblemViewComponent} from "@app/problems/problem-view/problem-view.component"
 import {PracticeProblemComponent} from "@app/course/practice-problem/practice-problem.component"
 import {CoursePracticeComponent} from "@app/course/course-practice/course-practice.component"
+import {CoursePracticeMapComponent} from "@app/course/course-practice-map/course-practice-map.component"
 
 const routes = [
     {
@@ -59,6 +60,11 @@ const routes = [
     {
         path: ':courseId/practice/category/:categoryId',
         component: PracticeProblemComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: ':courseId/practice/concept-map',
+        component: CoursePracticeMapComponent,
         canActivate: [AuthGuard]
     }
 ]

@@ -1,16 +1,17 @@
 @import '~@taiga-ui/core/styles/taiga-ui-local';
+@import 'mixins';
 
 .course-tile {
-    border: 0.20rem solid #000000;
+    border: 0.2rem solid #000000;
     overflow: hidden;
     cursor: default;
-    @media screen and (min-width: 1200px) {
+    @include screen-lg{
         flex-basis: calc(30% - 4.5rem);
     }
-    @media screen and (max-width: 1200px) {
+    @include screen-md{
         flex-basis: calc(50% - 4.5rem);
     }
-    @media screen and (max-width: 650px){
+    @include screen-sm{
         flex-basis: 100%
     }
     margin: 1rem;
@@ -25,11 +26,11 @@
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: row;
-    @media screen and (min-width: 1500px) {
-        max-width: 65%;
+    @include screen-lg{
+        max-width: 1200px;
     }
-    @media screen and (min-width: 750px) and (max-width: 1200px) {
-        max-width: 85%;
+    @include screen-md{
+        max-width: 900px;
     }
     position: relative;
 }
@@ -41,11 +42,10 @@
 
 .course-background {
     width: calc(100% + 4.5rem);
-    height: calc(3 * var(--tui-padding-l));
+    height: calc(4 * var(--tui-padding-l));
     margin-top: calc(-1 * var(--tui-padding-l));
-    margin-left: calc(-1 * var(--tui-padding-l));
+    margin-left: calc(-2 * var(--tui-padding-l));
     @include tui-space(bottom, 3);
-    //justify-content: flex-start;
 }
 
 .practice {
@@ -66,4 +66,12 @@
 
 .tokens{
     background-color:  #d7d7d7;
+}
+
+.course-banner{
+    width: calc(100% + 4.5rem);
+    margin-top: calc(-.5 * var(--tui-padding-l));
+    margin-left: calc(-1.25 * var(--tui-padding-l));
+    height: calc(3 * var(--tui-padding-l));
+    background-color:  rgba(112, 182, 246, 0.24);
 }

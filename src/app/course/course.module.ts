@@ -17,7 +17,7 @@ import {TokenUseService} from '@app/course/_services/token-use.service'
 import {ConceptMapComponent} from '@app/course/concept-map/concept-map.component'
 import {
     TuiAccordionModule,
-    TuiAvatarModule,
+    TuiAvatarModule, TuiBreadcrumbsModule,
     TuiCheckboxLabeledModule,
     TuiDataListWrapperModule,
     TuiFieldErrorModule,
@@ -54,7 +54,7 @@ import {
 import {
     CourseRegistrationStepComponent
 } from './course-registration/course-registration-step/course-registration-step.component'
-import {TuiActiveZoneModule, TuiFilterPipeModule} from '@taiga-ui/cdk'
+import {TuiActiveZoneModule, TuiElementModule, TuiFilterPipeModule, TuiItemModule} from '@taiga-ui/cdk'
 import {TuiTableModule} from '@taiga-ui/addon-table'
 import {DragulaModule} from 'ng2-dragula'
 import {CourseIslandModule} from '@app/components/course-island/course-island.module'
@@ -65,6 +65,7 @@ import {TuiSidebarModule} from '@taiga-ui/addon-mobile'
 import {SidebarModule} from '@app/components/sidebar/sidebar.module'
 import {CourseChallengeSnippetComponent} from './course-challenge-snippet/course-challenge-snippet.component'
 import {CoursePracticeComponent} from './course-practice/course-practice.component'
+import {CoursePracticeMapComponent} from './course-practice-map/course-practice-map.component'
 
 @NgModule({
     declarations: [
@@ -75,6 +76,7 @@ import {CoursePracticeComponent} from './course-practice/course-practice.compone
         CourseEventsSnippetComponent,
         CourseListComponent,
         CoursePracticeComponent,
+        CoursePracticeMapComponent,
         CourseQuestionSnippetComponent,
         CourseRegisterComponent,
         CourseRegistrationStepComponent,
@@ -97,12 +99,14 @@ import {CoursePracticeComponent} from './course-practice/course-practice.compone
         TuiAccordionModule,
         TuiActiveZoneModule,
         TuiAvatarModule,
+        TuiBreadcrumbsModule,
         TuiButtonModule,
         TuiCalendarModule,
         TuiCheckboxLabeledModule,
         TuiDataListModule,
         TuiDataListWrapperModule,
         TuiDialogModule,
+        TuiElementModule,
         TuiErrorModule,
         TuiFieldErrorModule,
         TuiFilterPipeModule,
@@ -113,6 +117,7 @@ import {CoursePracticeComponent} from './course-practice/course-practice.compone
         TuiInputModule,
         TuiInputTimeModule,
         TuiIslandModule,
+        TuiItemModule,
         TuiLinkModule,
         TuiLoaderModule,
         TuiMarkerIconModule,
@@ -124,8 +129,8 @@ import {CoursePracticeComponent} from './course-practice/course-practice.compone
         TuiSvgModule,
         TuiTableModule,
         TuiTabsModule,
-        TuiTagModule,
         DragulaModule.forRoot(),
+        TuiTagModule,
         TuiTextfieldControllerModule,
     ],
     providers: [
