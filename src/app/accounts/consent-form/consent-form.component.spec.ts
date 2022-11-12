@@ -13,14 +13,7 @@ import {
 import {Router} from "@angular/router"
 import {ConsentService} from "@app/accounts/_services/consent.service"
 import {ConsentServiceMock} from "@app/accounts/_test/_services/consent.service.mock"
-import {
-    TuiCheckboxLabeledModule,
-    TuiFieldErrorModule,
-    TuiInputModule,
-    TuiIslandModule,
-    TuiMultiSelectModule,
-    TuiSelectModule
-} from "@taiga-ui/kit"
+import {TuiCheckboxLabeledModule, TuiFieldErrorModule, TuiInputModule, TuiIslandModule} from "@taiga-ui/kit"
 import {TuiNotificationsService} from '@taiga-ui/core'
 import {of} from "rxjs"
 
@@ -37,7 +30,7 @@ describe('ConsentFormComponent', () => {
                 AdminTermsAndConditionsSnippetComponent,
                 StudentTermsAndConditionsSnippetComponent
             ],
-            imports: [TestModule, ReactiveFormsModule, TuiIslandModule, TuiInputModule, TuiFieldErrorModule, TuiCheckboxLabeledModule, TuiSelectModule, TuiMultiSelectModule],
+            imports: [TestModule, ReactiveFormsModule, TuiIslandModule, TuiInputModule, TuiFieldErrorModule, TuiCheckboxLabeledModule],
             providers: [{provide: ConsentService, useClass: ConsentServiceMock}]
         }).compileComponents()
     })
@@ -63,7 +56,6 @@ describe('ConsentFormComponent', () => {
             component.form.legal_first_name.setValue('Test')
             component.form.legal_last_name.setValue('Student')
             component.form.student_number.setValue('12345678')
-            component.form.race.setValue(['White'])
             fixture.detectChanges()
             component.onSubmit()
             expect(router.navigate).toHaveBeenCalledOnceWith(['homepage'])

@@ -14,20 +14,28 @@
         Back
     </button>
     <ng-container *ngIf="parentNode else topLevel">
-        <h2
-            [class.tui-skeleton]="flowchartComponent.children.length === 0"
-            class="tui-text_h5 tui-space_vertical-0"
-        >
-            Sub-Categories for {{parentNodeName}}
-        </h2>
+        <div>
+            <h2
+                [class.tui-skeleton]="flowchartComponent.children.length === 0"
+                class="tui-text_h5"
+            >
+                Categories - Subcategories in {{parentNodeName}}
+            </h2>
+            <p class="tui-island__paragraph tui-text_body-xl">
+                Choose a subcategory to start practicing
+            </p>
+        </div>
     </ng-container>
     <ng-template #topLevel>
-        <h2
-            [class.tui-skeleton]="flowchartComponent.children.length === 0"
-            class="tui-text_h5 tui-space_vertical-0"
-        >
-            Top-Level Categories
-        </h2>
+        <div>
+            <h2
+                [class.tui-skeleton]="flowchartComponent.children.length === 0"
+                class="tui-text_h5"
+            >
+                Categories
+            </h2>
+            <p class="tui-island__paragraph tui-text_body-xl" >Choose a category to practice in.</p>
+        </div>
     </ng-template>
 </div>
 <div #flowchartComponent [class.tui-skeleton]="flowchartComponent.children.length === 0" id="paper"></div>

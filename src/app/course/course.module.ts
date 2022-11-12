@@ -18,6 +18,7 @@ import {ConceptMapComponent} from '@app/course/concept-map/concept-map.component
 import {
     TuiAccordionModule,
     TuiAvatarModule,
+    TuiBreadcrumbsModule,
     TuiCheckboxLabeledModule,
     TuiDataListWrapperModule,
     TuiFieldErrorModule,
@@ -55,7 +56,7 @@ import {
 import {
     CourseRegistrationStepComponent
 } from './course-registration/course-registration-step/course-registration-step.component'
-import {TuiActiveZoneModule, TuiFilterPipeModule} from '@taiga-ui/cdk'
+import {TuiActiveZoneModule, TuiElementModule, TuiFilterPipeModule, TuiItemModule} from '@taiga-ui/cdk'
 import {TuiTableModule} from '@taiga-ui/addon-table'
 import {DragulaModule} from 'ng2-dragula'
 import {CourseIslandModule} from '@app/components/course-island/course-island.module'
@@ -69,6 +70,8 @@ import {GoalPageComponent} from './goal/goal-page/goal-page.component'
 import {GoalCreateComponent} from './goal/goal-create/goal-create.component'
 import {GoalComponent} from './goal/goal/goal.component'
 import {TuiRingChartModule} from "@taiga-ui/addon-charts"
+import {CoursePracticeComponent} from './course-practice/course-practice.component'
+import {CoursePracticeMapComponent} from './course-practice-map/course-practice-map.component'
 
 @NgModule({
     declarations: [
@@ -78,6 +81,8 @@ import {TuiRingChartModule} from "@taiga-ui/addon-charts"
         CourseEventCreateEditComponent,
         CourseEventsSnippetComponent,
         CourseListComponent,
+        CoursePracticeComponent,
+        CoursePracticeMapComponent,
         CourseQuestionSnippetComponent,
         CourseRegisterComponent,
         CourseRegistrationStepComponent,
@@ -88,7 +93,6 @@ import {TuiRingChartModule} from "@taiga-ui/addon-charts"
         LeaderBoardComponent,
         PracticeProblemComponent,
         TokenUseSnippetComponent,
-
     ],
     imports: [
         CommonModule,
@@ -104,12 +108,14 @@ import {TuiRingChartModule} from "@taiga-ui/addon-charts"
         TuiAccordionModule,
         TuiActiveZoneModule,
         TuiAvatarModule,
+        TuiBreadcrumbsModule,
         TuiButtonModule,
         TuiCalendarModule,
         TuiCheckboxLabeledModule,
         TuiDataListModule,
         TuiDataListWrapperModule,
         TuiDialogModule,
+        TuiElementModule,
         TuiErrorModule,
         TuiFieldErrorModule,
         TuiFilterPipeModule,

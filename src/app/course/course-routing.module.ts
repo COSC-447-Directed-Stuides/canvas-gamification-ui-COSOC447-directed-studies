@@ -11,6 +11,8 @@ import {PracticeProblemComponent} from "@app/course/practice-problem/practice-pr
 import {GoalPageComponent} from "@app/course/goal/goal-page/goal-page.component"
 import {GoalCreateComponent} from "@app/course/goal/goal-create/goal-create.component"
 import {GoalComponent} from "@app/course/goal/goal/goal.component"
+import {CoursePracticeComponent} from "@app/course/course-practice/course-practice.component"
+import {CoursePracticeMapComponent} from "@app/course/course-practice-map/course-practice-map.component"
 
 const routes: Routes = [
     {
@@ -39,6 +41,21 @@ const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
+        path: ':courseId/practice',
+        component: CoursePracticeComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: ':courseId/practice/concept-map',
+        component: CoursePracticeMapComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: ':courseId/practice/category/:categoryId',
+        component: PracticeProblemComponent,
+        canActivate: [AuthGuard]
+    },
+    {
         path: ':courseId/event/:eventId',
         component: CourseQuestionSnippetComponent,
         canActivate: [AuthGuard]
@@ -51,11 +68,6 @@ const routes: Routes = [
     {
         path: ':courseId/event/:eventId/problem/:id',
         component: ProblemViewComponent,
-        canActivate: [AuthGuard]
-    },
-    {
-        path: ':courseId/practice/category/:categoryId',
-        component: PracticeProblemComponent,
         canActivate: [AuthGuard]
     },
     {

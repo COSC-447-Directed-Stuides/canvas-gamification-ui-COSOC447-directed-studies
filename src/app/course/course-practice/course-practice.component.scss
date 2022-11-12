@@ -1,0 +1,67 @@
+@import '~@taiga-ui/core/styles/taiga-ui-local';
+
+.course-name{
+    cursor: pointer;
+}
+
+.course-header{
+    display: inline;
+}
+
+.course-banner{
+    width: calc(100% + 4.5rem);
+    margin-top: calc(-.5 * var(--tui-padding-l));
+    margin-left: calc(-1.25 * var(--tui-padding-l));
+    height: calc(3 * var(--tui-padding-l));
+    background-color:  rgba(112, 182, 246, 0.24);
+}
+
+.flex-container {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    position: relative;
+}
+
+.course-background {
+    width: calc(100% + 4.5rem);
+    height: calc(4 * var(--tui-padding-l));
+    margin-top: calc(-1 * var(--tui-padding-l));
+    margin-left: calc(-2 * var(--tui-padding-l));
+    @include tui-space(bottom, 3);
+}
+
+.practice-question{
+    background-color: #FABFFD;
+}
+
+.view-goals{
+    background-color: #C2FDBF;
+}
+
+.practice-tile {
+    border: 0.2rem solid #000000;
+    overflow: hidden;
+    cursor: default;
+    @media screen and (min-width: 1200px) {
+        flex-basis: calc(30% - 4.5rem);
+    }
+    @media screen and (max-width: 1200px) {
+        flex-basis: calc(50% - 4.5rem);
+    }
+    @media screen and (max-width: 650px){
+        flex-basis: 100%
+    }
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.flex-space{
+    flex-grow: 3;
+    width: 95%;
+}
+
