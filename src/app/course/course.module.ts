@@ -17,7 +17,8 @@ import {TokenUseService} from '@app/course/_services/token-use.service'
 import {ConceptMapComponent} from '@app/course/concept-map/concept-map.component'
 import {
     TuiAccordionModule,
-    TuiAvatarModule, TuiBreadcrumbsModule,
+    TuiAvatarModule,
+    TuiBreadcrumbsModule,
     TuiCheckboxLabeledModule,
     TuiDataListWrapperModule,
     TuiFieldErrorModule,
@@ -25,6 +26,7 @@ import {
     TuiInputDateModule,
     TuiInputDateRangeModule,
     TuiInputModule,
+    TuiInputNumberModule,
     TuiInputTimeModule,
     TuiIslandModule,
     TuiMarkerIconModule,
@@ -64,6 +66,10 @@ import {ProblemsModule} from '@app/problems/problems.module'
 import {TuiSidebarModule} from '@taiga-ui/addon-mobile'
 import {SidebarModule} from '@app/components/sidebar/sidebar.module'
 import {CourseChallengeSnippetComponent} from './course-challenge-snippet/course-challenge-snippet.component'
+import {GoalPageComponent} from './goal/goal-page/goal-page.component'
+import {GoalCreateComponent} from './goal/goal-create/goal-create.component'
+import {GoalComponent} from './goal/goal/goal.component'
+import {TuiRingChartModule} from "@taiga-ui/addon-charts"
 import {CoursePracticeComponent} from './course-practice/course-practice.component'
 import {CoursePracticeMapComponent} from './course-practice-map/course-practice-map.component'
 
@@ -81,6 +87,9 @@ import {CoursePracticeMapComponent} from './course-practice-map/course-practice-
         CourseRegisterComponent,
         CourseRegistrationStepComponent,
         CourseRegistrationStepperComponent,
+        GoalComponent,
+        GoalCreateComponent,
+        GoalPageComponent,
         LeaderBoardComponent,
         PracticeProblemComponent,
         TokenUseSnippetComponent,
@@ -115,21 +124,22 @@ import {CoursePracticeMapComponent} from './course-practice-map/course-practice-
         TuiInputDateModule,
         TuiInputDateRangeModule,
         TuiInputModule,
+        TuiInputNumberModule,
         TuiInputTimeModule,
         TuiIslandModule,
-        TuiItemModule,
         TuiLinkModule,
         TuiLoaderModule,
         TuiMarkerIconModule,
         TuiModeModule,
         TuiNotificationModule,
+        TuiRingChartModule,
         TuiSelectModule,
         TuiSidebarModule,
         TuiStepperModule,
         TuiSvgModule,
         TuiTableModule,
-        TuiTabsModule,
         DragulaModule.forRoot(),
+        TuiTabsModule,
         TuiTagModule,
         TuiTextfieldControllerModule,
     ],

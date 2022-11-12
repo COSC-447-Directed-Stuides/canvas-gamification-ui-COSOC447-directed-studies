@@ -1,6 +1,6 @@
 import {AuthGuard} from "@app/_helpers/auth.guard"
 import {NgModule} from "@angular/core"
-import {RouterModule} from "@angular/router"
+import {RouterModule, Routes} from "@angular/router"
 import {CourseListComponent} from "@app/course/course-list/course-list.component"
 import {CourseRegisterComponent} from "@app/course/course-registration/course-register.component"
 import {CourseComponent} from "@app/course/course.component"
@@ -8,10 +8,13 @@ import {CourseEventCreateEditComponent} from "@app/course/course-event-create/co
 import {CourseQuestionSnippetComponent} from "@app/course/course-question-snippet/course-question-snippet.component"
 import {ProblemViewComponent} from "@app/problems/problem-view/problem-view.component"
 import {PracticeProblemComponent} from "@app/course/practice-problem/practice-problem.component"
+import {GoalPageComponent} from "@app/course/goal/goal-page/goal-page.component"
+import {GoalCreateComponent} from "@app/course/goal/goal-create/goal-create.component"
+import {GoalComponent} from "@app/course/goal/goal/goal.component"
 import {CoursePracticeComponent} from "@app/course/course-practice/course-practice.component"
 import {CoursePracticeMapComponent} from "@app/course/course-practice-map/course-practice-map.component"
 
-const routes = [
+const routes: Routes = [
     {
         path: '',
         component: CourseListComponent,
@@ -43,6 +46,16 @@ const routes = [
         canActivate: [AuthGuard]
     },
     {
+        path: ':courseId/practice/concept-map',
+        component: CoursePracticeMapComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: ':courseId/practice/category/:categoryId',
+        component: PracticeProblemComponent,
+        canActivate: [AuthGuard]
+    },
+    {
         path: ':courseId/event/:eventId',
         component: CourseQuestionSnippetComponent,
         canActivate: [AuthGuard]
@@ -58,14 +71,19 @@ const routes = [
         canActivate: [AuthGuard]
     },
     {
-        path: ':courseId/practice/category/:categoryId',
-        component: PracticeProblemComponent,
-        canActivate: [AuthGuard]
+        path: ':courseId/goal',
+        component: GoalPageComponent,
+        canActivate: [AuthGuard],
     },
     {
-        path: ':courseId/practice/concept-map',
-        component: CoursePracticeMapComponent,
-        canActivate: [AuthGuard]
+        path: ':courseId/goal/create',
+        component: GoalCreateComponent,
+        canActivate: [AuthGuard],
+    },
+    {
+        path: ':courseId/goal/:goalId',
+        component: GoalComponent,
+        canActivate: [AuthGuard],
     }
 ]
 
