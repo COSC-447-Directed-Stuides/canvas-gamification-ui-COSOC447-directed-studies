@@ -39,7 +39,7 @@ import {
     TuiHostedDropdownModule,
     TuiLinkModule,
     TuiLoaderModule,
-    TuiModeModule,
+    TuiModeModule, TuiNotificationModule,
     TuiNotificationsModule,
     TuiRootModule,
     TuiSvgModule,
@@ -52,7 +52,7 @@ import {
     TuiInputCountModule,
     TuiIslandModule,
     TuiMarkerIconModule,
-    TuiRadioBlockModule, TuiTabsModule,
+    TuiRadioBlockModule, TuiTabsModule, TuiTagModule,
     TuiToggleModule
 } from '@taiga-ui/kit'
 import {TuiSidebarModule} from '@taiga-ui/addon-mobile'
@@ -135,7 +135,9 @@ import {TuiRingChartModule} from "@taiga-ui/addon-charts"
         TuiTablePaginationModule,
         TuiTabsModule,
         TuiThemeNightModule,
-        TuiToggleModule
+        TuiToggleModule,
+        TuiNotificationModule,
+        TuiTagModule
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
