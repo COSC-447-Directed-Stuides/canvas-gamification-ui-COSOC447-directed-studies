@@ -1,0 +1,75 @@
+<tui-island class="course-island" size="m">
+    <div style="width:68%; float:left;">
+            <div>
+                <h2 class="tui-text_h3 tui-space_vertical-10">My Stats</h2>
+            </div>
+            <div>
+                <div class = "stats_class">
+                    <tui-island class="stat" size="l">
+                        <h2 class="tui-island_text-align_center">27 day streak 🔥</h2>
+                    </tui-island>
+
+                    <tui-island class="stat" size="l">
+                        <h2 class="tui-island_text-align_center">100 questions completed.</h2>
+                    </tui-island>
+
+                    <tui-island class="stat" size="l">
+                        <h2 class="tui-island_text-align_center">12 challenges won.</h2>
+                    </tui-island>
+
+                    <tui-island class="stat" size="l">
+                        <h2 class="tui-island_text-align_center">1st on the leaderboard.</h2>
+                    </tui-island>
+
+                    <tui-island class="stat" size="l" style = "display: flex; justify-content: center; position: relative;">
+                        <h2 style="text-align: center" class="tui-island_text-align_center">8000 tokens earned.</h2>
+                        <button
+                            style="position: absolute;right: 2%"
+                            class="tui-form__button"
+                            size="l"
+                            tuiButton
+                        >
+                            Trade Tokens
+                        </button>
+                    </tui-island>
+
+                    <tui-island class="stat" size="l">
+                        <h2 class="tui-island_text-align_center">7124 active minutes.</h2>
+                    </tui-island>
+                </div>
+            </div>
+
+    </div>
+
+    <div style="width:31%; float:right;">
+            <h2 class="tui-text_h3 tui-space_vertical-10"> &nbsp; Active Courses</h2>
+            <ng-container *ngIf="activeCourses else waitingActive">
+                <ng-container *ngIf="activeCourses.length > 0">
+                    <ng-container *ngFor="let course of activeCourses">
+                        <app-course-island [course]="course" [hasViewPermission]="true"></app-course-island>
+                    </ng-container>
+                </ng-container>
+                <ng-container>
+                    <tui-island [hoverable]="true" [routerLink]="['/course']" size="m" textAlign="center">
+                        <div class="more-courses-island">
+                            <div class="tui-space_vertical-12">
+                                <figure class="tui-island__figure">
+                                    <tui-svg src="tuiIconAddRowLarge"></tui-svg>
+                                </figure>
+                                <h2 class="tui-island__title">
+                                    Looking for {{ activeCourses?.length > 0 ? 'more' : '' }} courses?
+                                </h2>
+                            </div>
+                        </div>
+                    </tui-island>
+                </ng-container>
+            </ng-container>
+            <ng-template #waitingActive>
+                <app-course-island *ngFor="let _ of [0, 0, 0]" [skeleton]="true"></app-course-island>
+            </ng-template>
+        </div>
+
+
+
+
+</tui-island>

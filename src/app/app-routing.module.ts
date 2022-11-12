@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core'
-import {RouterModule, Routes} from '@angular/router'
+import {ExtraOptions, RouterModule, Routes} from '@angular/router'
 import {LandingPageComponent} from './components/landing-page/landing-page.component'
 import {SampleQuestionsComponent} from './components/sample-questions/sample-questions.component'
 import {TopicsComponent} from './components/topics/topics.component'
@@ -10,8 +10,14 @@ import {HomepageComponent} from './components/homepage/homepage.component'
 import {UserActionsComponent} from '@app/components/homepage/user-actions/user-actions.component'
 import {NotFoundComponent} from '@app/components/general/not-found/not-found.component'
 import {ForbiddenComponent} from '@app/components/general/forbidden/forbidden.component'
-import {AdminComponent} from "@app/admin/admin.component"
+import {AdminComponent} from '@app/admin/admin.component'
+import {StatisticsComponent} from '@app/components/statistics/statistics.component'
+import {UserStatsComponent} from '@app/components/user-stats/user-stats.component'
 
+const routerOptions: ExtraOptions = {
+    anchorScrolling: 'enabled',
+    scrollOffset: [0, 60]
+}
 
 const routes: Routes = [
     {path: 'accounts', loadChildren: () => import('./accounts/accounts.module').then(m => m.AccountsModule)},
@@ -32,6 +38,10 @@ const routes: Routes = [
         component: SampleQuestionsComponent
     },
     {
+        path: 'user-stats',
+        component: UserStatsComponent
+    },
+    {
         path: 'topics',
         component: TopicsComponent
     },
@@ -45,12 +55,20 @@ const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
+        path: 'contact',
+        component: ContactComponent
+    },
+    {
         path: 'actions',
         component: UserActionsComponent
     },
     {
         path: 'faq',
         component: FaqComponent
+    },
+    {
+        path: 'stats',
+        component: StatisticsComponent
     },
     {
         path: '404',
@@ -68,7 +86,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'})],
+    imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'}), RouterModule.forRoot(routes, routerOptions)],
     exports: [RouterModule]
 })
 export class AppRoutingModule {
