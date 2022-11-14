@@ -14,6 +14,7 @@ import {
 } from "@app/_models"
 import {TokenUse} from "@app/_models/token_use"
 import {MOCK_CATEGORY, MOCK_COURSE_EVENT} from "@app/problems/_test/mock"
+import {Stats} from "@app/_models/user_difficulty_stats"
 
 export const MOCK_TOKEN_USE_OPTION1: TokenUseOption = {
     id: 1,
@@ -315,4 +316,37 @@ export const MOCK_UQJ2: UQJ = {
     variables: JSON.parse('{}'),
     variables_errors: [],
     is_checkbox: false,
+}
+
+export const MOCK_USER_STATS1: Stats = {
+    challenge_stats: {
+        challenges_completed: 0
+    },
+    goal_stats: {
+        goals_completed: 0
+    },
+    question_stats: [{
+        mcq: {
+            questions_attempt: 0,
+            questions_solved: 0,
+            avgSuccess: 0
+        },
+        java :{
+            questions_attempt: 0,
+            questions_solved: 0,
+            avgSuccess: 0
+        },
+        parsons :{
+            questions_attempt: 0,
+            questions_solved: 0,
+            avgSuccess: 0
+        }
+    }],
+    category_stats: [{
+        category: 0,
+        difficulty: null,
+        questions_attempt: 0,
+        questions_solved: 0,
+        avgSuccess: 0
+    }]
 }

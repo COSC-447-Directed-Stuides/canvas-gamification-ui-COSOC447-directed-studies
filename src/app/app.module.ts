@@ -35,11 +35,12 @@ import {
     TuiButtonModule,
     TuiDataListModule,
     TuiDialogModule,
-    TuiDropdownControllerModule, TuiFormatNumberPipeModule,
+    TuiDropdownControllerModule,
+    TuiFormatNumberPipeModule,
     TuiHostedDropdownModule,
     TuiLinkModule,
     TuiLoaderModule,
-    TuiModeModule, TuiNotificationModule,
+    TuiModeModule,
     TuiNotificationsModule,
     TuiRootModule,
     TuiSvgModule,
@@ -134,10 +135,9 @@ import {TuiRingChartModule} from "@taiga-ui/addon-charts"
         TuiTableModule,
         TuiTablePaginationModule,
         TuiTabsModule,
+        TuiTagModule,
         TuiThemeNightModule,
-        TuiToggleModule,
-        TuiNotificationModule,
-        TuiTagModule
+        TuiToggleModule
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
