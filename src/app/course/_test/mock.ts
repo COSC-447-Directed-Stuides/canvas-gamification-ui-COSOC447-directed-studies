@@ -325,7 +325,7 @@ export const MOCK_USER_STATS1: Stats = {
     goal_stats: {
         goals_completed: 0
     },
-    question_stats: [{
+    question_stats: {
         mcq: {
             questions_attempt: 0,
             questions_solved: 0,
@@ -341,12 +341,21 @@ export const MOCK_USER_STATS1: Stats = {
             questions_solved: 0,
             avgSuccess: 0
         }
-    }],
+    },
     category_stats: [{
         category: 0,
-        difficulty: null,
+        difficulty: 'EASY',
         questions_attempt: 0,
-        questions_solved: 0,
+        questions_solved: 2,
         avgSuccess: 0
+    },
+    {
+        category: 0,
+        difficulty: 'EASY',
+        questions_attempt: 0,
+        questions_solved: 2,
+        avgSuccess: 0
+
     }]
+
 }

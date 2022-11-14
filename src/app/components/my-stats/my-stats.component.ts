@@ -5,6 +5,7 @@ import {AuthenticationService} from '@app/_services/api/authentication'
 import {ApiService} from "@app/_services/api.service"
 import {Stats} from "@app/_models/user_difficulty_stats"
 import {UserStatsService} from "@app/_services/api/user-stats.service"
+import {CategoryService} from "@app/_services/api/category.service"
 
 @Component({
     selector: 'app-my-stats',
@@ -63,11 +64,11 @@ export class MyStatsComponent implements OnInit {
 
             this.qDone = this.easies + this.mediums + this.hards
 
-            this.basicsNum = this.stats.category_stats.filter(stats => {
-                stats.difficulty === 'ALL' && stats.category === 64
-            }).reduce((sum, obj) => {
+            this.basicsNum = this.stats.category_stats.filter(stats =>
+                stats.difficulty === 'ALL' && stats.category === 64).reduce((sum, obj) => {
                 return sum + obj.questions_solved
             },0)
+
 
             this.predefNum = this.stats.category_stats.filter(stats => {
                 stats.difficulty === 'ALL' && stats.category === 72
@@ -105,17 +106,10 @@ export class MyStatsComponent implements OnInit {
                 return sum + obj.questions_solved
             },0)
 
-            this.mcqNum = this.stats.question_stats.reduce((sum, obj) => {
-                return sum + obj.mcq.questions_solved
-            },0)
+            this.mcqNum = this.stats.question_stats.mcq.questions_solved
+            this.parsonsNum = this.stats.question_stats.parsons.questions_solved
+            this.javaNum = this.stats.question_stats.java.questions_solved
 
-            this.parsonsNum = this.stats.question_stats.reduce((sum, obj) => {
-                return sum + obj.parsons.questions_solved
-            },0)
-
-            this.javaNum = this.stats.question_stats.reduce((sum, obj) => {
-                return sum + obj.java.questions_solved
-            },0)
 
         })
 

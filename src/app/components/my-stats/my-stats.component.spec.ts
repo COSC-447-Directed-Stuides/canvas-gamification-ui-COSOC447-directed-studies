@@ -1,5 +1,4 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing'
-
 import {MyStatsComponent} from './my-stats.component'
 import {MOCK_USER_STATS1} from "../../course/_test/mock"
 
@@ -29,7 +28,7 @@ describe('MyStatsComponent', () => {
     })
 
     it('number of easy questions is tested', () => {
-        expect(component.easies).toEqual(MOCK_USER_STATS1)
+        expect(component.easies).toEqual(2)
     })
 
     it('number of medium questions is tested', () => {

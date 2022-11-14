@@ -26,7 +26,7 @@ export interface Stats {
             questions_solved: number,
             avgSuccess: number
         }
-    }[],
+    },
     category_stats: {
         category: number,
         difficulty: string,
