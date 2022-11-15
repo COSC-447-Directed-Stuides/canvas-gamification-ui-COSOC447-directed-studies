@@ -14,7 +14,7 @@
                 </tr>
                 <tr class="tui-table__tr tui-table__tr_border_none">
                     <td class="tui-table__td">Questions Completed</td>
-                    <td class="tui-table__td">{{qDone}}</td>
+                    <td class="tui-table__td">{{totalqDone}}</td>
                 </tr>
                 <tr class="tui-table__tr tui-table__tr_border_none">
                     <td class="tui-table__td">Challenges Completed</td>
@@ -69,26 +69,25 @@
     </div>
     <div class=" tui-row tui-row_adaptive ">
         <div class="tui-col_lg-4 tui-col_md-4 tui-col_xs-4">
-            <table class="tui-table tui-table_font-size_s ">
-                <tbody>
-                <tr class="tui-table__tr tui-table__tr_border_none">
-                    <th class="tui-table__th">Difficulty</th>
-                    <th class="tui-table__th"># Completed</th>
-                </tr>
-                <tr class="tui-table__tr tui-table__tr_border_none">
-                    <td class="tui-table__td">Easy</td>
-                    <td class="tui-table__td">{{easies}}</td>
-                </tr>
-                <tr class="tui-table__tr tui-table__tr_border_none">
-                    <td class="tui-table__td">Medium</td>
-                    <td class="tui-table__td">{{mediums}}</td>
-                </tr>
-                <tr class="tui-table__tr tui-table__tr_border_none">
-                    <td class="tui-table__td">Hard</td>
-                    <td class="tui-table__td">{{hards}}</td>
-                </tr>
-                </tbody>
-            </table>
+
+
+            <div class="tui-col_lg-4 tui-col_md-4 tui-col_xs-4 ">
+                <table class="tui-table tui-table_font-size_s ">
+                    <tbody>
+                    <tr class="tui-table__tr tui-table__tr_border_none">
+                        <th class="tui-table__th">Difficulty</th>
+                        <th class="tui-table__th"># Completed</th>
+                    </tr>
+                    <ng-container *ngFor="let val of qSolvedDifficulty; let i = index">
+                    <tr class="tui-table__tr tui-table__tr_border_none">
+                        <td class="tui-table__td">{{difficulties[i][1]}}</td>
+                        <td class="tui-table__td">{{val}}</td>
+                    </tr>
+                    </ng-container>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="tui-col_lg-4 tui-col_md-4 tui-col_xs-4 ">
             <table class="tui-table tui-table_font-size_s ">
@@ -97,34 +96,12 @@
                     <th class="tui-table__th">Category</th>
                     <th class="tui-table__th"># Completed</th>
                 </tr>
-                <tr class="tui-table__tr tui-table__tr_border_none">
-                    <td class="tui-table__td">Basics</td>
-                    <td class="tui-table__td">{{basicsNum}}</td>
-                </tr>
-                <tr class="tui-table__tr tui-table__tr_border_none">
-                    <td class="tui-table__td">Pre-Defined Classes</td>
-                    <td class="tui-table__td">{{predefNum}}</td>
-                </tr>
-                <tr class="tui-table__tr tui-table__tr_border_none">
-                    <td class="tui-table__td">Conditionals</td>
-                    <td class="tui-table__td">{{conditionalsNum}}</td>
-                </tr>
-                <tr class="tui-table__tr tui-table__tr_border_none">
-                    <td class="tui-table__td">Loops</td>
-                    <td class="tui-table__td">{{loopsNum}}</td>
-                </tr>
-                <tr class="tui-table__tr tui-table__tr_border_none">
-                    <td class="tui-table__td">Methods</td>
-                    <td class="tui-table__td">{{methodsNum}}</td>
-                </tr>
-                <tr class="tui-table__tr tui-table__tr_border_none">
-                    <td class="tui-table__td">Arrays</td>
-                    <td class="tui-table__td">{{arraysNum}}</td>
-                </tr>
-                <tr class="tui-table__tr tui-table__tr_border_none">
-                    <td class="tui-table__td">OOP</td>
-                    <td class="tui-table__td">{{oopNum}}</td>
-                </tr>
+                    <ng-container *ngFor="let go of questionsSolved; let i = index">
+                        <tr class="tui-table__tr tui-table__tr_border_none">
+                            <td class="tui-table__td">{{pCategories[i].name}}</td>
+                            <td class="tui-table__td">{{go}}</td>
+                        </tr>
+                    </ng-container>
                 </tbody>
             </table>
         </div>

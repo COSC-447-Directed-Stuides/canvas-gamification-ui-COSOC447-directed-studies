@@ -36,7 +36,6 @@ import {
     TuiDataListModule,
     TuiDialogModule,
     TuiDropdownControllerModule,
-    TuiFormatNumberPipeModule,
     TuiHostedDropdownModule,
     TuiLinkModule,
     TuiLoaderModule,
@@ -53,7 +52,7 @@ import {
     TuiInputCountModule,
     TuiIslandModule,
     TuiMarkerIconModule,
-    TuiRadioBlockModule, TuiTabsModule, TuiTagModule,
+    TuiRadioBlockModule,
     TuiToggleModule
 } from '@taiga-ui/kit'
 import {TuiSidebarModule} from '@taiga-ui/addon-mobile'
@@ -68,7 +67,6 @@ import {CodeEditorModule} from '@app/components/code-editor/code-editor.module'
 import {FooterModule} from '@app/components/footer/footer.module'
 import {NgDompurifySanitizer} from '@tinkoff/ng-dompurify'
 import {SidebarModule} from '@app/components/sidebar/sidebar.module'
-import {TuiRingChartModule} from "@taiga-ui/addon-charts"
 
 @NgModule({
     declarations: [
@@ -118,7 +116,6 @@ import {TuiRingChartModule} from "@taiga-ui/addon-charts"
         TuiDialogModule,
         TuiDropdownControllerModule,
         TuiDropdownHoverModule,
-        TuiFormatNumberPipeModule,
         TuiHostedDropdownModule,
         TuiInputCountModule,
         TuiIslandModule,
@@ -128,14 +125,11 @@ import {TuiRingChartModule} from "@taiga-ui/addon-charts"
         TuiModeModule,
         TuiNotificationsModule,
         TuiRadioBlockModule,
-        TuiRingChartModule,
         TuiRootModule,
         TuiSidebarModule,
         TuiSvgModule,
         TuiTableModule,
         TuiTablePaginationModule,
-        TuiTabsModule,
-        TuiTagModule,
         TuiThemeNightModule,
         TuiToggleModule
     ],

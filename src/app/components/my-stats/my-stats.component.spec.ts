@@ -33,18 +33,6 @@ describe('MyStatsComponent', () => {
         expect(component.stats).toEqual(MOCK_USER_STATS1)
     })
 
-    it('number of easy questions is tested', () => {
-        expect(component.easies).toEqual(2)
-    })
-
-    it('number of medium questions is tested', () => {
-        expect(component.mediums).toEqual(1)
-    })
-
-    it('number of hard questions is tested', () => {
-        expect(component.hards).toEqual(1)
-    })
-
     it('number of challenges is tested', () => {
         expect(component.challengesDone).toEqual(2)
     })
@@ -53,44 +41,9 @@ describe('MyStatsComponent', () => {
         expect(component.goalsDone).toEqual(2)
     })
 
-    it('number of basic questions is tested', () => {
-        expect(component.basicsNum).toEqual(2)
+    it('number of goals is tested', () => {
+        expect(component.totalqDone).toEqual(12)
     })
 
-    it('number of predef questions is tested', () => {
-        expect(component.predefNum).toEqual(1)
-    })
-
-    it('number of conditional questions is tested', () => {
-        expect(component.conditionalsNum).toEqual(1)
-    })
-
-    it('number of loops questions is tested', () => {
-        expect(component.loopsNum).toEqual(1)
-    })
-
-    it('number of methods questions is tested', () => {
-        expect(component.methodsNum).toEqual(1)
-    })
-
-    it('number of arrays questions is tested', () => {
-        expect(component.arraysNum).toEqual(1)
-    })
-
-    it('number of arrays questions is tested', () => {
-        expect(component.oopNum).toEqual(1)
-    })
-
-    it('number of mcq questions is tested', () => {
-        expect(component.mcqNum).toEqual(2)
-    })
-
-    it('number of parsons questions is tested', () => {
-        expect(component.parsonsNum).toEqual(1)
-    })
-
-    it('number of java questions is tested', () => {
-        expect(component.javaNum).toEqual(1)
-    })
 
 })

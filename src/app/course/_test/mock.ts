@@ -323,7 +323,7 @@ export const MOCK_USER_STATS1: Stats = {
         challenges_completed: 2
     },
     goal_stats: {
-        goals_completed: 2
+        goals_completed: 0
     },
     question_stats: {
         mcq: {

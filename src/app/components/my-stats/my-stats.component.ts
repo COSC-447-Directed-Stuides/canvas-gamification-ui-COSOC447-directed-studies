@@ -6,6 +6,8 @@ import {ApiService} from "@app/_services/api.service"
 import {Stats} from "@app/_models/user_difficulty_stats"
 import {UserStatsService} from "@app/_services/api/user-stats.service"
 import {CategoryService} from "@app/_services/api/category.service"
+import {DifficultyService} from "@app/problems/_services/difficulty.service"
+import {Difficulty} from "@app/_models/difficulty"
 
 @Component({
     selector: 'app-my-stats',
@@ -14,25 +16,21 @@ import {CategoryService} from "@app/_services/api/category.service"
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MyStatsComponent implements OnInit {
-    pCategories: Category[]
+    difficulties: Difficulty[] = []
+    pCategories: Category[] = []
     user: User
     stats: Stats
-    easies: number
-    mediums: number
-    hards: number
     challengesDone: number
     goalsDone: number
-    basicsNum: number
-    predefNum: number
-    conditionalsNum: number
-    loopsNum: number
-    methodsNum: number
-    arraysNum: number
-    oopNum: number
+
     mcqNum: number
     parsonsNum: number
     javaNum: number
-    qDone: number
+
+    totalqDone: number
+    questionsSolved: number[] = []
+    qSolvedDifficulty: number[] = []
+
 
 
     constructor(
@@ -40,7 +38,8 @@ export class MyStatsComponent implements OnInit {
         private authenticationService: AuthenticationService,
         private apiService: ApiService,
         private userStatsService: UserStatsService,
-        private categoryService: CategoryService
+        private categoryService: CategoryService,
+        private difficultyService: DifficultyService
 
     ) {
         this.authenticationService.currentUser.subscribe(user => this.user = user)
@@ -48,62 +47,36 @@ export class MyStatsComponent implements OnInit {
 
     ngOnInit(): void {
         this.categoryService.getCategories().subscribe((categories) => {
-            this.pCategories = categories.filter(c => c.parent == null)
+            this.pCategories = categories.filter(c => !c.parent)
 
             this.userStatsService.getUserStats().subscribe(stats => {
                 this.stats = stats
                 this.challengesDone = stats.challenge_stats.challenges_completed
                 this.goalsDone = stats.goal_stats.goals_completed
 
-                for(let i = 0; i<this.pCategories.length; i++){
-                    if(this.pCategories[i].pk === 64){
-                        this.basicsNum = this.stats.category_stats.filter(stats => stats.difficulty === 'ALL' && stats.category === this.pCategories[i].pk ).reduce((sum, obj) => {
-                            return sum + obj.questions_solved
-                        },0)
-                    } else if(this.pCategories[i].pk === 72)
-                        this.predefNum = this.stats.category_stats.filter(stats => stats.difficulty === 'ALL' && stats.category === this.pCategories[i].pk).reduce((sum, obj) => {
-                            return sum + obj.questions_solved
-                        },0)
-                    else if(this.pCategories[i].pk === 83)
-                        this.conditionalsNum = this.stats.category_stats.filter(stats => stats.difficulty === 'ALL' && stats.category === this.pCategories[i].pk).reduce((sum, obj) => {
-                            return sum + obj.questions_solved
-                        },0)
-                    else if(this.pCategories[i].pk === 91)
-                        this.loopsNum = this.stats.category_stats.filter(stats => stats.difficulty === 'ALL' && stats.category === this.pCategories[i].pk).reduce((sum, obj) => {
-                            return sum + obj.questions_solved
-                        },0)
-                    else if(this.pCategories[i].pk === 100)
-                        this.methodsNum = this.stats.category_stats.filter(stats => stats.difficulty === 'ALL' && stats.category === this.pCategories[i].pk).reduce((sum, obj) => {
-                            return sum + obj.questions_solved
-                        },0)
-                    else if(this.pCategories[i].pk === 107)
-                        this.arraysNum = this.stats.category_stats.filter(stats => stats.difficulty === 'ALL' && stats.category === this.pCategories[i].pk).reduce((sum, obj) => {
-                            return sum + obj.questions_solved
-                        },0)
-                    else if(this.pCategories[i].pk === 115)
-                        this.oopNum = this.stats.category_stats.filter(stats => stats.difficulty === 'ALL' && stats.category === this.pCategories[i].pk).reduce((sum, obj) => {
-                            return sum + obj.questions_solved
-                        },0)
+                for( const cat of this.pCategories){
+                    this.questionsSolved.push(this.stats.category_stats.filter(stats => stats.difficulty === 'ALL' && stats.category === cat.pk ).reduce((sum, obj) => {
+                        return sum + obj.questions_solved
+                    },0))
                 }
 
-                this.easies = this.stats.category_stats.filter(stats => stats.difficulty === 'EASY').reduce((sum, obj) => {
-                    return sum + obj.questions_solved
-                },0)
+                this.difficultyService.getDifficulties().subscribe(difficulties => {
+                    this.difficulties = difficulties
 
-                this.mediums = this.stats.category_stats.filter(stats => stats.difficulty === 'MEDIUM').reduce((sum, obj) => {
-                    return sum + obj.questions_solved
-                },0)
+                    for(let i = 0; i<this.difficulties.length; i++){
+                        this.qSolvedDifficulty.push(this.stats.category_stats.filter(stats => stats.difficulty === this.difficulties[i][0]).reduce((sum, obj) => {
+                            return sum + obj.questions_solved
+                        },0))
+                    }
+                })
 
-                this.hards = this.stats.category_stats.filter(stats => stats.difficulty === 'HARD').reduce((sum, obj) => {
-                    return sum + obj.questions_solved
-                },0)
-
-                this.qDone = this.easies + this.mediums + this.hards
+                this.totalqDone = this.questionsSolved.reduce((accumulator, obj) => {
+                    return accumulator + obj
+                }, 0)
 
                 this.mcqNum = this.stats.question_stats.mcq.questions_solved
                 this.parsonsNum = this.stats.question_stats.parsons.questions_solved
                 this.javaNum = this.stats.question_stats.java.questions_solved
-
 
             })
 
