@@ -323,7 +323,7 @@ export const MOCK_USER_STATS1: Stats = {
         challenges_completed: 2
     },
     goal_stats: {
-        goals_completed: 0
+        goals_completed: 2
     },
     question_stats: {
         mcq: {
@@ -342,84 +342,69 @@ export const MOCK_USER_STATS1: Stats = {
             avgSuccess: 0
         }
     },
-    category_stats: [{
-        category: 0,
-        difficulty: 'EASY',
-        questions_attempt: 0,
-        questions_solved: 2,
-        avgSuccess: 0
-    },
-    {
-        category: 0,
-        difficulty: 'MEDIUM',
-        questions_attempt: 0,
-        questions_solved: 1,
-        avgSuccess: 0
+    category_stats: [
+        {
+            category: 0,
+            difficulty: 'EASY',
+            questions_attempt: 0,
+            questions_solved: 1,
+            avgSuccess: 0
+        },
+        {
+            category: 0,
+            difficulty: 'MEDIUM',
+            questions_attempt: 0,
+            questions_solved: 1,
+            avgSuccess: 0
 
-    },
-    {
-        category: 0,
-        difficulty: 'HARD',
-        questions_attempt: 0,
-        questions_solved: 1,
-        avgSuccess: 0
+        },
+        {
+            category: 0,
+            difficulty: 'HARD',
+            questions_attempt: 0,
+            questions_solved: 1,
+            avgSuccess: 0
 
-    },
-    {
-        category: 64,
-        difficulty: 'ALL',
-        questions_attempt: 0,
-        questions_solved: 2,
-        avgSuccess: 0
+        },
+        {
+            category: 0,
+            difficulty: 'ALL',
+            questions_attempt: 0,
+            questions_solved: 3,
+            avgSuccess: 0
 
-    },
-    {
-        category: 72,
-        difficulty: 'ALL',
-        questions_attempt: 0,
-        questions_solved: 1,
-        avgSuccess: 0
-    },
-    {
-        category: 83,
-        difficulty: 'ALL',
-        questions_attempt: 0,
-        questions_solved: 1,
-        avgSuccess: 0
+        },
+        {
+            category: 1,
+            difficulty: 'EASY',
+            questions_attempt: 0,
+            questions_solved: 1,
+            avgSuccess: 0
+        },
+        {
+            category: 1,
+            difficulty: 'MEDIUM',
+            questions_attempt: 0,
+            questions_solved: 1,
+            avgSuccess: 0
 
-    },
-    {
-        category: 91,
-        difficulty: 'ALL',
-        questions_attempt: 0,
-        questions_solved: 1,
-        avgSuccess: 0
+        },
+        {
+            category: 1,
+            difficulty: 'HARD',
+            questions_attempt: 0,
+            questions_solved: 1,
+            avgSuccess: 0
 
-    },
-    {
-        category: 100,
-        difficulty: 'ALL',
-        questions_attempt: 0,
-        questions_solved: 1,
-        avgSuccess: 0
+        },
+        {
+            category: 1,
+            difficulty: 'ALL',
+            questions_attempt: 0,
+            questions_solved: 3,
+            avgSuccess: 0
 
-    },
-    {
-        category: 107,
-        difficulty: 'ALL',
-        questions_attempt: 0,
-        questions_solved: 1,
-        avgSuccess: 0
-
-    },
-    {
-        category: 115,
-        difficulty: 'ALL',
-        questions_attempt: 0,
-        questions_solved: 1,
-        avgSuccess: 0
-
-    }
+        }
     ]
 
 }

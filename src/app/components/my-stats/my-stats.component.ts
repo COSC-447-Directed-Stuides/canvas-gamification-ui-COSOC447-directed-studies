@@ -31,8 +31,6 @@ export class MyStatsComponent implements OnInit {
     questionsSolved: number[] = []
     qSolvedDifficulty: number[] = []
 
-
-
     constructor(
         private route: ActivatedRoute,
         private authenticationService: AuthenticationService,
@@ -45,7 +43,7 @@ export class MyStatsComponent implements OnInit {
         this.authenticationService.currentUser.subscribe(user => this.user = user)
     }
 
-    ngOnInit(): void {
+    async ngOnInit(): Promise<void> {
         this.categoryService.getCategories().subscribe((categories) => {
             this.pCategories = categories.filter(c => !c.parent)
 
