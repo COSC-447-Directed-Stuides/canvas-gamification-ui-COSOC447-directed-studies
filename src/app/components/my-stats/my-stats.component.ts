@@ -1,5 +1,6 @@
 import {Component, OnInit,ChangeDetectionStrategy} from '@angular/core'
-import {Category, User} from '@app/_models'
+import {Category, Course, STATUS, User} from '@app/_models'
+import {CourseService} from '@app/course/_services/course.service'
 import {ActivatedRoute} from '@angular/router'
 import {AuthenticationService} from '@app/_services/api/authentication'
 import {ApiService} from "@app/_services/api.service"
@@ -17,19 +18,21 @@ import {Difficulty} from "@app/_models/difficulty"
 })
 export class MyStatsComponent implements OnInit {
     difficulties: Difficulty[] = []
-    pCategories: Category[] = []
+    topLevelCategories: Category[] = []
     user: User
     stats: Stats
-    challengesDone: number
-    goalsDone: number
+    challengesCompleted: number
+    goalsCompleted: number
 
     mcqNum: number
     parsonsNum: number
     javaNum: number
 
-    totalqDone: number
-    questionsSolved: number[] = []
-    qSolvedDifficulty: number[] = []
+    activeCourses: Course[]
+
+    totalQuestionsSolved: number
+    questionsSolvedByCategory: number[] = []
+    questionsSolvedByDifficulty: number[] = []
 
     constructor(
         private route: ActivatedRoute,
@@ -37,23 +40,31 @@ export class MyStatsComponent implements OnInit {
         private apiService: ApiService,
         private userStatsService: UserStatsService,
         private categoryService: CategoryService,
-        private difficultyService: DifficultyService
+        private difficultyService: DifficultyService,
+        private courseService: CourseService
 
     ) {
         this.authenticationService.currentUser.subscribe(user => this.user = user)
     }
 
     async ngOnInit(): Promise<void> {
+        this.courseService
+            .getCourses(true, {ordering: {name: true}})
+            ?.subscribe((courses) => {
+                this.activeCourses = courses.filter(course => {
+                    return course.status === STATUS.active
+                })
+            })
         this.categoryService.getCategories().subscribe((categories) => {
-            this.pCategories = categories.filter(c => !c.parent)
+            this.topLevelCategories = categories.filter(c => !c.parent)
 
             this.userStatsService.getUserStats().subscribe(stats => {
                 this.stats = stats
-                this.challengesDone = stats.challenge_stats.challenges_completed
-                this.goalsDone = stats.goal_stats.goals_completed
+                this.challengesCompleted = stats.challenge_stats.challenges_completed
+                this.goalsCompleted = stats.goal_stats.goals_completed
 
-                for( const cat of this.pCategories){
-                    this.questionsSolved.push(this.stats.category_stats.filter(stats => stats.difficulty === 'ALL' && stats.category === cat.pk ).reduce((sum, obj) => {
+                for( const cat of this.topLevelCategories){
+                    this.questionsSolvedByCategory.push(this.stats.category_stats.filter(stats => stats.difficulty === 'ALL' && stats.category === cat.pk ).reduce((sum, obj) => {
                         return sum + obj.questions_solved
                     },0))
                 }
@@ -62,13 +73,13 @@ export class MyStatsComponent implements OnInit {
                     this.difficulties = difficulties
 
                     for(let i = 0; i<this.difficulties.length; i++){
-                        this.qSolvedDifficulty.push(this.stats.category_stats.filter(stats => stats.difficulty === this.difficulties[i][0]).reduce((sum, obj) => {
+                        this.questionsSolvedByDifficulty.push(this.stats.category_stats.filter(stats => stats.difficulty === this.difficulties[i][0]).reduce((sum, obj) => {
                             return sum + obj.questions_solved
                         },0))
                     }
                 })
 
-                this.totalqDone = this.questionsSolved.reduce((accumulator, obj) => {
+                this.totalQuestionsSolved = this.questionsSolvedByCategory.reduce((accumulator, obj) => {
                     return accumulator + obj
                 }, 0)
 

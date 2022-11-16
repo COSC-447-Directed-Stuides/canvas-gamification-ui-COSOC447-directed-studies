@@ -36,20 +36,20 @@ describe('MyStatsComponent', () => {
         expect(component).toBeTruthy()
     })
 
-    it('stats should be retrieved', () => {
+    it('should retrieve stats', () => {
         expect(component.stats).toEqual(MOCK_USER_STATS1)
     })
 
-    it('number of challenges is tested', () => {
-        expect(component.challengesDone).toEqual(2)
+    it('should test number of challenges completed', () => {
+        expect(component.challengesCompleted).toEqual(2)
     })
 
-    it('number of goals is tested', () => {
-        expect(component.goalsDone).toEqual(2)
+    it('should test number of goals completed', () => {
+        expect(component.goalsCompleted).toEqual(2)
     })
 
-    fit('number of q is tested', () => {
-        expect(component.totalqDone).toEqual(6)
+    it('should test number of questions solved', () => {
+        expect(component.totalQuestionsSolved).toEqual(6)
     })
 
 
