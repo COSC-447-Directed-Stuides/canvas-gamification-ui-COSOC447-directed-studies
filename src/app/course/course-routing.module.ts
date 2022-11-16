@@ -9,8 +9,8 @@ import {CourseQuestionSnippetComponent} from "@app/course/course-question-snippe
 import {ProblemViewComponent} from "@app/problems/problem-view/problem-view.component"
 import {PracticeProblemComponent} from "@app/course/practice-problem/practice-problem.component"
 import {GoalPageComponent} from "@app/course/goal/goal-page/goal-page.component"
-import {GoalCreateComponent} from "@app/course/goal/goal-create/goal-create.component"
 import {GoalComponent} from "@app/course/goal/goal/goal.component"
+
 
 const routes: Routes = [
     {
@@ -61,11 +61,6 @@ const routes: Routes = [
     {
         path: ':courseId/goal',
         component: GoalPageComponent,
-        canActivate: [AuthGuard],
-    },
-    {
-        path: ':courseId/goal/create',
-        component: GoalCreateComponent,
         canActivate: [AuthGuard],
     },
     {

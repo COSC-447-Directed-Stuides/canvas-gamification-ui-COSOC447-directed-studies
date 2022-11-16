@@ -46,12 +46,12 @@ import {
 } from '@taiga-ui/core'
 import {
     TUI_VALIDATION_ERRORS,
-    TuiAvatarModule,
-    TuiDropdownHoverModule,
-    TuiInputCountModule,
+    TuiAvatarModule, TuiDataListWrapperModule,
+    TuiDropdownHoverModule, TuiFieldErrorModule,
+    TuiInputCountModule, TuiInputDateModule, TuiInputNumberModule, TuiInputTimeModule,
     TuiIslandModule,
     TuiMarkerIconModule,
-    TuiRadioBlockModule,
+    TuiRadioBlockModule, TuiSelectModule,
     TuiToggleModule
 } from '@taiga-ui/kit'
 import {TuiSidebarModule} from '@taiga-ui/addon-mobile'
@@ -66,6 +66,7 @@ import {CodeEditorModule} from '@app/components/code-editor/code-editor.module'
 import {FooterModule} from '@app/components/footer/footer.module'
 import {NgDompurifySanitizer} from '@tinkoff/ng-dompurify'
 import {SidebarModule} from '@app/components/sidebar/sidebar.module'
+import {StatisticsComponent} from './components/statistics/statistics.component'
 
 @NgModule({
     declarations: [
@@ -82,6 +83,7 @@ import {SidebarModule} from '@app/components/sidebar/sidebar.module'
         RecentUserActionsComponent,
         RecentViewedQuestionsComponent,
         SampleQuestionsComponent,
+        StatisticsComponent,
         TokenValuesComponent,
         TopicsComponent,
         UserActionsComponent,
@@ -111,11 +113,16 @@ import {SidebarModule} from '@app/components/sidebar/sidebar.module'
         TuiAvatarModule,
         TuiButtonModule,
         TuiDataListModule,
+        TuiDataListWrapperModule,
         TuiDialogModule,
         TuiDropdownControllerModule,
         TuiDropdownHoverModule,
+        TuiFieldErrorModule,
         TuiHostedDropdownModule,
         TuiInputCountModule,
+        TuiInputDateModule,
+        TuiInputNumberModule,
+        TuiInputTimeModule,
         TuiIslandModule,
         TuiLinkModule,
         TuiLoaderModule,
@@ -124,12 +131,13 @@ import {SidebarModule} from '@app/components/sidebar/sidebar.module'
         TuiNotificationsModule,
         TuiRadioBlockModule,
         TuiRootModule,
+        TuiSelectModule,
         TuiSidebarModule,
         TuiSvgModule,
         TuiTableModule,
         TuiTablePaginationModule,
         TuiThemeNightModule,
-        TuiToggleModule
+        TuiToggleModule,
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
