@@ -11,8 +11,8 @@
                     size="s"
                     tuiButton
                 >
-                    Back to course
-                </a>
+                    Back to concept map
+                </a
             </div>
             <div
                 *ngIf="parentCategory"
@@ -85,6 +85,11 @@
                 class="tui-space_top-1"
             >
                 Average Success Rate: {{(categorySuccessRate * 100).toFixed(2) + '%' || 'N/A'}}
+            </p>
+            <p
+                class="tui-space_top-1"
+            >
+                Difficulty: {{this.difficulty}}
             </p>
             <tui-select
                 (ngModelChange)="updateQuestions($event, include_solved)"

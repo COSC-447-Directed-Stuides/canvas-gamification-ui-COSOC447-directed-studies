@@ -7,6 +7,7 @@ import {SubmissionViewComponent} from '@app/problems/submission-view/submission-
 import {SubmissionService} from "@app/problems/_services/submission.service"
 import {map} from "rxjs/operators"
 import {Observable, Subscriber} from "rxjs"
+import {TuiSizeL} from "@taiga-ui/core/types/size"
 
 @Component({
     selector: 'app-submission-snippet',
@@ -59,6 +60,7 @@ export class SubmissionSnippetComponent implements OnChanges, OnInit {
         this.dialogService.open<number>(
             new PolymorpheusComponent(SubmissionViewComponent, this.injector),
             {
+                size: 'l',
                 data: submission,
                 closeable: false,
                 label: `Submission ${index}`
