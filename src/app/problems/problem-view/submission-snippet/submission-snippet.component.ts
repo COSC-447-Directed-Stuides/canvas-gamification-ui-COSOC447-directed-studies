@@ -7,7 +7,7 @@ import {SubmissionViewComponent} from '@app/problems/submission-view/submission-
 import {SubmissionService} from "@app/problems/_services/submission.service"
 import {map} from "rxjs/operators"
 import {Observable, Subscriber} from "rxjs"
-import {TuiSizeL} from "@taiga-ui/core/types/size"
+
 
 @Component({
     selector: 'app-submission-snippet',

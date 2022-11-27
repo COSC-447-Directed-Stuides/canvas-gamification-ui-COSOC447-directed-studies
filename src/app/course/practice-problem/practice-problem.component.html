@@ -32,14 +32,8 @@
                     src="tuiIconChevronRight"
                 ></tui-svg>
             </div>
-            <tui-hosted-dropdown [content]="categoryDropdown" class="tui-space_bottom-2">
-                <button
-                    [class.tui-skeleton]="!category"
-                    class="practice-sidebar_content-categories_button tui-text_h6"
-                >
-                    {{!parentCategory ? 'All ' : ''}}{{category?.name ?? 'Category Name'}}
-                </button>
-            </tui-hosted-dropdown>
+
+            <br>
             <ng-template #categoryDropdown>
                 <tui-data-list role="menu">
                     <tui-opt-group
@@ -72,25 +66,6 @@
                     </tui-opt-group>
                 </tui-data-list>
             </ng-template>
-            <p
-                [class.tui-skeleton]="!category || !userStats"
-                [class.tui-skeleton_text]="!category || !userStats"
-                class="tui-space_bottom-0"
-            >
-                Your Success Rate: {{(userSuccessRate * 100).toFixed(2) + '%' || 'N/A'}}
-            </p>
-            <p
-                [class.tui-skeleton]="!category || !userStats"
-                [class.tui-skeleton_text]="!category || !userStats"
-                class="tui-space_top-1"
-            >
-                Average Success Rate: {{(categorySuccessRate * 100).toFixed(2) + '%' || 'N/A'}}
-            </p>
-            <p
-                class="tui-space_top-1"
-            >
-                Difficulty: {{this.difficulty}}
-            </p>
             <tui-select
                 (ngModelChange)="updateQuestions($event, include_solved)"
                 [class.tui-skeleton]="!difficulties || !category"
