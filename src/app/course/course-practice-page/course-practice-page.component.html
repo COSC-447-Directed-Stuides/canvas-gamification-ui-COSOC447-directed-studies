@@ -4,37 +4,41 @@
 <div class="flex-container tui-space_top-10">
     <tui-island class="tui-island_hoverable practice-tile" size="m">
         <div class="practice-background practice-question"></div>
-        <h3 class="tui-island__title">Concept Map</h3>
-        <p class="tui-island__paragraph tui-text_body-xl flex-space">View programming concepts and practice
-            questions in selected topics and difficulty levels.</p>
-        <div class="course-view-button tui-space_top-3">
-            <a
-                appearance="primary"
-                [routerLink]="['concept-map']"
-                class="tui-form__button"
-                size="m"
-                tuiButton
-            >
-                Practice
-            </a>
+        <div class="practice-tile-text">
+            <h3 class="tui-island__title">Concept Map</h3>
+            <p class="tui-island__paragraph tui-text_body-xl flex-space">View programming concepts and practice
+                questions in selected topics and difficulty levels.</p>
+            <div class="practice-tile-button">
+                <a
+                    appearance="primary"
+                    [routerLink]="['concept-map']"
+                    class="tui-form__button"
+                    size="m"
+                    tuiButton
+                >
+                    Practice
+                </a>
+            </div>
         </div>
     </tui-island>
 
     <tui-island class="tui-island_hoverable practice-tile" size="m">
         <div class="practice-background view-goals"></div>
-        <h3 class="tui-island__title">Personal Goals</h3>
-        <p class="tui-island__paragraph tui-text_body-xl flex-space">Develop goals for yourself that suit your own
-            skill level and earn tokens when you achieve them.</p>
-        <div class="course-view-button tui-space_top-3">
-            <a
-                appearance="primary"
-                [routerLink]="['/course', courseId, 'goal']"
-                class="tui-form__button"
-                size="m"
-                tuiButton
-            >
-                View
-            </a>
+        <div class="practice-tile-text">
+            <h3 class="tui-island__title">Personal Goals</h3>
+            <p class="tui-island__paragraph tui-text_body-xl flex-space">Develop goals for yourself that suit your own
+                skill level and earn tokens when you achieve them.</p>
+            <div class="practice-tile-button">
+                <a
+                    appearance="primary"
+                    [routerLink]="['/course', courseId, 'goal']"
+                    class="tui-form__button"
+                    size="m"
+                    tuiButton
+                >
+                    View
+                </a>
+            </div>
         </div>
     </tui-island>
 

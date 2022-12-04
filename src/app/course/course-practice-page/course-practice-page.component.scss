@@ -7,10 +7,11 @@
     justify-content: center;
     flex-direction: row;
     position: relative;
+    height: 100%;
 }
 
 .practice-background {
-    width: calc(100% + 2rem);
+    width: calc(100% + 2 * var(--tui-padding-l));
     height: calc(4 * var(--tui-padding-l));
     margin-top: calc(-1 * var(--tui-padding-l));
     margin-left: calc(-1 * var(--tui-padding-l));
@@ -26,7 +27,6 @@
 }
 
 .practice-tile {
-    border: 2.5px solid #000000;
     overflow: hidden;
     cursor: default;
     @include screen-lg {
@@ -38,16 +38,23 @@
     @include screen-sm {
         flex-basis: 100%
     }
-    margin: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
     min-height: 250px;
 }
 
+.practice-tile-text {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: max-content;
+}
+
 .flex-space {
-    flex: 1;
+    flex: 1 1;
     text-align: left;
+}
+
+.practice-tile-button {
+    flex: 0 1;
 }
 
 .button-box {

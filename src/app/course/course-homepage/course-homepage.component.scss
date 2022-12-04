@@ -2,7 +2,6 @@
 @import 'mixins';
 
 .course-tile {
-    border: 2.5px solid #000000;
     @include screen-lg {
         flex-basis: calc(30% - 4.5rem);
     }
@@ -13,6 +12,7 @@
         flex-basis: 100%
     }
     cursor: default;
+    overflow: hidden;
 }
 
 .flex-container {
@@ -43,7 +43,7 @@
 }
 
 .course-background {
-    width: calc(100% + 2rem);
+    width: calc(100% + 2 * var(--tui-padding-l));
     height: calc(4 * var(--tui-padding-l));
     margin-top: calc(-1 * var(--tui-padding-l));
     margin-left: calc(-1 * var(--tui-padding-l));
