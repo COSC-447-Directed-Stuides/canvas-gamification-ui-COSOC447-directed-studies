@@ -11,7 +11,6 @@
     @include screen-sm {
         flex-basis: 100%
     }
-    cursor: default;
     overflow: hidden;
 }
 
@@ -27,14 +26,13 @@
     @include screen-md {
         max-width: 900px;
     }
-    position: relative;
     gap: 2rem 2rem;
 }
 
 .course-tile-text {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
+    height: calc(100% - 4 * var(--tui-padding-l));
 }
 
 .flex-space {
@@ -63,15 +61,11 @@
 }
 
 .leaderboard {
-    background-color: var(--tui-info-bg-hover);
+    opacity: 0.24;
+    background-color: var(--tui-support-02);
 }
 
 .tokens {
-    background-color: var(--tui-neutral-bg-hover);
-}
-
-.course-banner {
-    padding: 0.75rem;
-    height: calc(3 * var(--tui-padding-l));
-    background-color: var(--tui-secondary-active);
+    opacity: 0.24;
+    background-color: var(--tui-support-10);
 }

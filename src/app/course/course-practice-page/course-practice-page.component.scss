@@ -5,8 +5,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    flex-direction: row;
-    position: relative;
     height: 100%;
 }
 
@@ -19,11 +17,13 @@
 }
 
 .practice-question {
-    background-color: var(--tui-accent-hover);
+    background-color: var(--tui-support-06);
+    opacity: 0.24;
 }
 
 .view-goals {
-    background-color: var(--tui-support-21);
+    background-color: var(--tui-support-02);
+    opacity: 0.24;
 }
 
 .practice-tile {
@@ -43,23 +43,10 @@
 
 .practice-tile-text {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
-    height: max-content;
+    height: calc(100% - 4 * var(--tui-padding-l));
 }
 
 .flex-space {
     flex: 1 1;
-    text-align: left;
-}
-
-.practice-tile-button {
-    flex: 0 1;
-}
-
-.button-box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
 }
