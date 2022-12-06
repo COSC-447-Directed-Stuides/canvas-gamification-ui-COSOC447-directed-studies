@@ -34,7 +34,7 @@ import {
     TuiStepperModule,
     TuiTabsModule,
     TuiTagModule,
-    TuiTextAreaModule
+    TuiTextAreaModule, TuiToggleModule
 } from '@taiga-ui/kit'
 import {
     TuiButtonModule,
@@ -154,6 +154,7 @@ import {CourseHomepageComponent} from './course-homepage/course-homepage.compone
         TuiTagModule,
         TuiTextAreaModule,
         TuiTextfieldControllerModule,
+        TuiToggleModule,
     ],
     providers: [
         CourseEventService,

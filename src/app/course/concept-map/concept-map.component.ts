@@ -14,6 +14,7 @@ export class ConceptMapComponent implements OnInit {
     parentNode: number = null
     parentNodeName: string = null
     conceptMapGraph: ConceptMapGraph
+    isListView: boolean
 
     @Input() currCourse: Course
 
@@ -22,6 +23,7 @@ export class ConceptMapComponent implements OnInit {
         private router: Router,
         @Inject(Injector) private readonly injector: Injector
     ) {
+        this.isListView = false
     }
 
     ngOnInit(): void {
@@ -74,5 +76,9 @@ export class ConceptMapComponent implements OnInit {
      */
     isTopLevel(categoryId: number): boolean {
         return this.rawCategories.find(category => category.pk === categoryId).parent === null
+    }
+
+    toggleList(): void {
+        this.isListView = !this.isListView
     }
 }

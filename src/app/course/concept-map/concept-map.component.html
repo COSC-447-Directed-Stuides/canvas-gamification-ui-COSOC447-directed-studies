@@ -1,25 +1,27 @@
 <div class="flowchart-instructions tui-space_bottom-4">
-    <button
-        *ngIf="parentNode"
-        (click)="reset()"
-        [class.tui-skeleton]="flowchartComponent.children.length === 0"
-        appearance="primary"
-        aria-label="Back"
-        class="tui-space_right-4"
-        icon="tuiIconArrowLeft"
-        size="s"
-        tuiButton
-    >
-        Back
-    </button>
-    <ng-container *ngIf="parentNode else topLevel">
-        <h2
+    <div class="start-row">
+        <button
+            *ngIf="parentNode"
+            (click)="reset()"
             [class.tui-skeleton]="flowchartComponent.children.length === 0"
-            class="tui-text_h5 tui-space_vertical-0"
+            appearance="primary"
+            aria-label="Back"
+            class="tui-space_right-4"
+            icon="tuiIconArrowLeft"
+            size="s"
+            tuiButton
         >
-            Sub-Categories for {{parentNodeName}}
-        </h2>
-    </ng-container>
+            Back
+        </button>
+        <ng-container *ngIf="parentNode else topLevel">
+            <h2
+                [class.tui-skeleton]="flowchartComponent.children.length === 0"
+                class="tui-text_h5 tui-space_vertical-0"
+            >
+                Sub-Categories for {{parentNodeName}}
+            </h2>
+        </ng-container>
+    </div>
     <ng-template #topLevel>
         <h2
             [class.tui-skeleton]="flowchartComponent.children.length === 0"
@@ -28,5 +30,22 @@
             Top-Level Categories
         </h2>
     </ng-template>
+    <div class="close-row">
+        <h3>Show categories in list view: </h3>
+        <tui-toggle
+            formControlName="listToggle"
+            size="l"
+            (click)="toggleList()"
+        ></tui-toggle>
+    </div>
 </div>
+
+<div *ngIf="isListView; else showGraph">
+    <h1>Showing List View</h1>
+</div>
+<ng-template #showGraph>
+    <h1>Showing Concept Map</h1>
+</ng-template>
+
 <div #flowchartComponent [class.tui-skeleton]="flowchartComponent.children.length === 0" id="paper"></div>
+

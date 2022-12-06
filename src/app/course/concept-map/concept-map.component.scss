@@ -11,4 +11,21 @@
 .flowchart-instructions {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
+
+.close-row {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.start-row {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: row;
+}
+
