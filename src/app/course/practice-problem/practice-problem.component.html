@@ -1,5 +1,5 @@
-<div class="practice">
-    <app-sidebar position="left" sidebarId="practiceSidebar" spacing="between">
+<div class="practice w-full">
+    <app-sidebar position="left" sidebarId="practiceSidebar" spacing="between" size = "m">
         <div class="practice-sidebar_content tui-space_top-6">
             <div
                 class="tui-space_bottom-2"
@@ -11,29 +11,26 @@
                     size="s"
                     tuiButton
                 >
-                    Back to concept map
+                    Back to Concept Map
                 </a>
             </div>
             <div
-                *ngIf="parentCategory"
-                class="practice-sidebar_content-breadcrumbs tui-space_bottom-2"
+                class="tui-space_bottom-2"
             >
                 <a
-                    [class.tui-skeleton]="!category"
-                    [class.tui-skeleton_text]="!category"
-                    [routerLink]="['../', parentCategory?.pk]"
-                    class="tui-space_vertical-0"
-                    tuiLink
+                    [routerLink]="['../../../']"
+                    class="tui-space_vertical-0 w-full"
+                    icon="tuiIconArrowLeft"
+                    size="s"
+                    tuiButton
                 >
-                    {{parentCategory?.name}}
+                    Back to Goals
                 </a>
-                <tui-svg
-                    [class.tui-skeleton]="!category"
-                    src="tuiIconChevronRight"
-                ></tui-svg>
             </div>
 
+
             <br>
+
             <ng-template #categoryDropdown>
                 <tui-data-list role="menu">
                     <tui-opt-group
@@ -66,59 +63,125 @@
                     </tui-opt-group>
                 </tui-data-list>
             </ng-template>
-            <tui-select
-                (ngModelChange)="updateQuestions($event, include_solved)"
-                [class.tui-skeleton]="!difficulties || !category"
-                [ngModel]="difficulty"
-                [tuiTextfieldCleaner]="true"
-                [valueContent]="difficulties ? (difficulties | stringifyTuiDataList: 0: 1) : ''"
-                tuiTextfieldSize="m"
-            >
-                Choose a level of difficulty
-                <tui-data-list *tuiDataList>
-                    <button *ngFor="let diff of difficulties" [value]="diff[0]" tuiOption>
-                        {{ diff[1] }}
-                    </button>
-                </tui-data-list>
-            </tui-select>
-            <tui-checkbox-labeled
-                (ngModelChange)="updateQuestions(difficulty, $event)"
-                [class.tui-skeleton]="!difficulties || !category"
-                [ngModel]="include_solved"
-                class="tui-space_top-4"
-                ngDefaultControl
-            >
-                Include Solved
-            </tui-checkbox-labeled>
-        </div>
-        <div class="practice-sidebar_buttons tui-space_vertical-6">
-            <button
-                (click)="openReportQuestion()"
-                [class.tui-skeleton]="!category || !uqjs"
-                icon="tuiIconAttention"
-                size="s"
-                tuiButton
-            >
-                Report
-            </button>
-            <button
-                (click)="prevQuestion()"
-                [class.tui-skeleton]="!category || !uqjs"
-                icon="tuiIconArrowLeft"
-                size="s"
-                tuiButton
-            >
-                Previous Question
-            </button>
-            <button
-                (click)="nextQuestion()"
-                [class.tui-skeleton]="!category || !uqjs"
-                iconRight="tuiIconArrowRight"
-                size="s"
-                tuiButton
-            >
-                Next Question
-            </button>
+            <br>
+            <br>
+            <div>
+                <div class="tui-container tui-container_adaptive tui-container_example">
+                    <div class="tui-row tui-row_adaptive">
+                        <div class="tui-col_xs-1 tui-col_md-1 tui-col_lg-1">
+                            <div class="dummy">
+                                <p
+                                    [class.tui-skeleton]="!category || !userStats"
+                                    [class.tui-skeleton_text]="!category || !userStats"
+                                    class="tui-space_bottom-0"
+                                >
+                                    Difficulty:
+                                </p>
+
+                            </div>
+                        </div>
+
+                        <div class="tui-col_xs-2 tui-col_md-2 tui-col_lg-2 tui-space_right-8">
+                            <div class="dummy">
+                                <tui-select
+                                    (ngModelChange)="updateQuestions($event, include_solved)"
+                                    [class.tui-skeleton]="!difficulties || !category"
+                                    [ngModel]="difficulty"
+                                    [tuiTextfieldCleaner]="true"
+                                    [valueContent]="difficulties ? (difficulties | stringifyTuiDataList: 0: 1) : ''"
+                                    tuiTextfieldSize="m"
+                                >
+
+                                    <tui-data-list *tuiDataList>
+                                        <button *ngFor="let diff of difficulties" [value]="diff[0]" tuiOption>
+                                            {{ diff[1] }}
+                                        </button>
+                                    </tui-data-list>
+                                </tui-select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tui-container tui-container_adaptive tui-container_example">
+                <div class="tui-row tui-row_adaptive">
+                    <div class="tui-col_xs-2 tui-col_md-2 tui-col_lg-2">
+                        <div class="dummy">
+                            <p class=tui-space_top-6>Include Solved Questions:</p>
+                        </div>
+                    </div>
+                    <div class="tui-col_xs-1 tui-col_md-1 tui-col_lg-1">
+                        <div class="dummy">
+                            <tui-checkbox-labeled
+                                (ngModelChange)="updateQuestions(difficulty, $event)"
+                                [class.tui-skeleton]="!difficulties || !category"
+                                [ngModel]="include_solved"
+                                class="tui-space_top-10"
+                                size="l"
+                                ngDefaultControl
+                            >
+                            </tui-checkbox-labeled>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <p class=tui-space_horizontal-10>Browse this category:</p>
+                <div class="tui-container tui-container_adaptive tui-container_example">
+                    <div class="tui-row tui-row_adaptive">
+                        <div class="tui-col_xs-1 tui-col_md-1 tui-col_lg-1">
+                            <div class="dummy">
+                                <a
+                                    class="tui-space_vertical-0 tui-space_horizontal-0"
+                                    (click)="nextQuestion()"
+                                    [class.tui-skeleton]="!category || !uqjs"
+                                    icon="tuiIconArrowLeft"
+                                    size="xl"
+                                    tuiButton
+                                >
+
+                                </a>
+
+                            </div>
+                        </div>
+
+                        <div class="tui-col_xs-1 tui-col_md-1 tui-col_lg-1">
+                            <div class="dummy">
+                                <a
+                                    class="tui-space_vertical-0 tui-space_horizontal-10"
+                                    (click)="nextQuestion()"
+                                    [class.tui-skeleton]="!category || !uqjs"
+                                    icon="tuiIconArrowRight"
+                                    size="xl"
+                                    tuiButton
+                                >
+
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="practice-sidebar_buttons tui-space_vertical-6">
+                <button
+                    (click)="openReportQuestion()"
+                    [class.tui-skeleton]="!category || !uqjs"
+                    icon="tuiIconAttention"
+                    size="s"
+                    tuiButton
+                >
+                    Report a Problem
+                </button>
+            </div>
         </div>
     </app-sidebar>
     <div class="practice-content">
