@@ -29,10 +29,12 @@ import {
     TuiInputTimeModule,
     TuiIslandModule,
     TuiMarkerIconModule,
+    TuiProgressModule,
     TuiSelectModule,
     TuiStepperModule,
     TuiTabsModule,
-    TuiTagModule
+    TuiTagModule,
+    TuiTextAreaModule
 } from '@taiga-ui/kit'
 import {
     TuiButtonModule,
@@ -40,6 +42,7 @@ import {
     TuiDataListModule,
     TuiDialogModule,
     TuiErrorModule,
+    TuiHintModule,
     TuiHostedDropdownModule,
     TuiLinkModule,
     TuiLoaderModule,
@@ -69,24 +72,37 @@ import {GoalPageComponent} from './goal/goal-page/goal-page.component'
 import {GoalCreateComponent} from './goal/goal-create/goal-create.component'
 import {GoalComponent} from './goal/goal/goal.component'
 import {TuiRingChartModule} from "@taiga-ui/addon-charts"
+import {SubmissionChartComponent} from './goal/submission-chart/submission-chart.component'
+import {CourseCreateComponent} from './course-create/course-create.component'
+import {GoalIslandComponent} from './goal/goal-island/goal-island.component'
+import {CoursePracticePageComponent} from './course-practice-page/course-practice-page.component'
+import {CoursePracticeComponent} from './course-practice/course-practice.component'
+import {CourseHomepageComponent} from './course-homepage/course-homepage.component'
+
 
 @NgModule({
     declarations: [
         ConceptMapComponent,
         CourseChallengeSnippetComponent,
         CourseComponent,
+        CourseCreateComponent,
         CourseEventCreateEditComponent,
         CourseEventsSnippetComponent,
+        CourseHomepageComponent,
         CourseListComponent,
+        CoursePracticeComponent,
+        CoursePracticePageComponent,
         CourseQuestionSnippetComponent,
         CourseRegisterComponent,
         CourseRegistrationStepComponent,
         CourseRegistrationStepperComponent,
         GoalComponent,
         GoalCreateComponent,
+        GoalIslandComponent,
         GoalPageComponent,
         LeaderBoardComponent,
         PracticeProblemComponent,
+        SubmissionChartComponent,
         TokenUseSnippetComponent,
     ],
     imports: [
@@ -112,6 +128,7 @@ import {TuiRingChartModule} from "@taiga-ui/addon-charts"
         TuiErrorModule,
         TuiFieldErrorModule,
         TuiFilterPipeModule,
+        TuiHintModule,
         TuiHostedDropdownModule,
         TuiInputCountModule,
         TuiInputDateModule,
@@ -125,17 +142,18 @@ import {TuiRingChartModule} from "@taiga-ui/addon-charts"
         TuiMarkerIconModule,
         TuiModeModule,
         TuiNotificationModule,
+        TuiProgressModule,
         TuiRingChartModule,
         TuiSelectModule,
         TuiSidebarModule,
         TuiStepperModule,
         TuiSvgModule,
         TuiTableModule,
-        DragulaModule.forRoot(),
         TuiTabsModule,
-        TuiTagModule,
-        TuiTextfieldControllerModule,
         DragulaModule.forRoot(),
+        TuiTagModule,
+        TuiTextAreaModule,
+        TuiTextfieldControllerModule,
     ],
     providers: [
         CourseEventService,
