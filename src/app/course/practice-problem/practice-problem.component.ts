@@ -153,7 +153,6 @@ export class PracticeProblemComponent implements OnInit, OnDestroy {
             is_practice: true
         }).subscribe((uqjs) => {
             this.uqjs = _.shuffle(uqjs)
-            this.updateCurrentQuestion()
             this.calculateUserSuccessRate()
         }))
     }

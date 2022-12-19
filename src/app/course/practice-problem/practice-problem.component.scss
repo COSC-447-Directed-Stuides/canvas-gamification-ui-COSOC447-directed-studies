@@ -5,6 +5,17 @@
   width: 100%;
 }
 
+a.tuiButton > tui-svg {
+    position: relative;
+    left: 10px;
+}
+
+.tui-icon {
+    font-size: 50px;
+}
+tui-select {
+    align-items: center;
+}
 .practice {
     display: flex;
 
@@ -14,6 +25,7 @@
 
     &-sidebar {
         width: 10%;
+        overflow: hidden;
         &_content {
 
             display: flex;
