@@ -52,9 +52,11 @@ export class PracticeProblemComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
+
         this.questionService.getQuestion(this.currentQuestionId).subscribe(result => {
             this.currentQuestion = result
         })
+
         this.subscriptions.add(this.categoryService.getCategories().subscribe(categories => {
             this.categories = categories
             this.nestedCategories = categories.reduce((previous, category) => {
