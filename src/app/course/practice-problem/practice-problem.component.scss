@@ -1,34 +1,35 @@
 @import '~@taiga-ui/core/styles/taiga-ui-local';
 @import "mixins";
 
+.practice-sidebar_content{
+    overflow-x: hidden;
+}
 .w-full {
   width: 100%;
 }
 
-a.tuiButton > tui-svg {
-    position: relative;
-    left: 10px;
+.w-half {
+    width: 20%;
 }
 
-.tui-icon {
-    font-size: 50px;
+.icon {
+    width: 3rem;
+    height: 3rem;
 }
-tui-select {
-    align-items: center;
+.texter{
+    text-align: justify;
 }
+
 .practice {
-    display: flex;
+    display: inline;
 
     @include screen-sm() {
         flex-direction: column;
     }
 
     &-sidebar {
-        width: 10%;
-        overflow: hidden;
         &_content {
-
-            display: flex;
+            display: inline;
             flex-direction: column;
 
             &-breadcrumbs {
@@ -78,7 +79,7 @@ tui-select {
         width: 100%;
 
         &_none {
-            display: flex;
+            display: inline;
             flex-direction: column;
             justify-content: center;
             align-items: center;
