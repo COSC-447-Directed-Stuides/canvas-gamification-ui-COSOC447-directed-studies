@@ -30,7 +30,7 @@ export class ConceptMapComponent implements OnInit {
             this.conceptMapGraph = new ConceptMapGraph((cellId) => {
                 this.parentNode = cellId
                 if (!this.isTopLevel(cellId)) {
-                    this.router.navigate(['course', this.currCourse.id, 'practice', 'category', cellId]).then()
+                    this.router.navigate(['course', this.currCourse.id, 'practice', 'category', cellId], {queryParams: {difficulty: 'EASY'}}).then()
                 } else {
                     this.renderGraph()
                 }
