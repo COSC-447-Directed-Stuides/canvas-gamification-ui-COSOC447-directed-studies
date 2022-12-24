@@ -1,10 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core'
 import {ActivatedRoute} from '@angular/router'
 import {UqjService} from '@app/problems/_services/uqj.service'
-import {Category, NestedCategories} from '@app/_models'
+import {Category, NestedCategories, Question} from '@app/_models'
 import {Difficulty} from '@app/_models/difficulty'
 import {DifficultyService} from '@app/problems/_services/difficulty.service'
 import {UserStatsService} from '@app/_services/api/user-stats.service'
+import {QuestionService} from '@app/problems/_services/question.service'
 import {CourseService} from '@app/course/_services/course.service'
 import {CategoryService} from '@app/_services/api/category.service'
 import {forkJoin, Subscription} from 'rxjs'
@@ -22,6 +23,7 @@ export class PracticeProblemComponent implements OnInit, OnDestroy {
 
     uqjs: number[]
     currentQuestionId: number
+    currentQuestion: Question
     cursor = 0
     category: Category
     categories: Category[] = []
@@ -45,6 +47,7 @@ export class PracticeProblemComponent implements OnInit, OnDestroy {
         private courseService: CourseService,
         private categoryService: CategoryService,
         private userStatsService: UserStatsService,
+        private questionService: QuestionService,
     ) {
     }
 
@@ -148,7 +151,6 @@ export class PracticeProblemComponent implements OnInit, OnDestroy {
             is_practice: true
         }).subscribe((uqjs) => {
             this.uqjs = _.shuffle(uqjs)
-            this.updateCurrentQuestion()
             this.calculateUserSuccessRate()
         }))
     }

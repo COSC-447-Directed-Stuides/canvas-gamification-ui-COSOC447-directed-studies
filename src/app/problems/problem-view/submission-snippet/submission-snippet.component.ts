@@ -8,6 +8,7 @@ import {SubmissionService} from "@app/problems/_services/submission.service"
 import {map} from "rxjs/operators"
 import {Observable, Subscriber} from "rxjs"
 
+
 @Component({
     selector: 'app-submission-snippet',
     templateUrl: './submission-snippet.component.html',
@@ -59,6 +60,7 @@ export class SubmissionSnippetComponent implements OnChanges, OnInit {
         this.dialogService.open<number>(
             new PolymorpheusComponent(SubmissionViewComponent, this.injector),
             {
+                size: 'l',
                 data: submission,
                 closeable: false,
                 label: `Submission ${index}`
