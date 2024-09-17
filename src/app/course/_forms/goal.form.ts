@@ -39,7 +39,16 @@ export class GoalForm {
         return builder.group({
             category: new FormControl('', [Validators.required]),
             difficulty: new FormControl('', [Validators.required]),
-            number_of_questions: new FormControl('', [Validators.required])
+            number_of_questions: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(1)])
+        })
+    }
+
+    static createGoalItemFormInput(category: number, difficulty: string, numberOfQuestions: number): FormGroup {
+        const builder = new FormBuilder()
+        return builder.group({
+            category: new FormControl(category, [Validators.required]),
+            difficulty: new FormControl(difficulty, [Validators.required]),
+            number_of_questions: new FormControl(numberOfQuestions, [Validators.required])
         })
     }
 
@@ -62,6 +71,12 @@ export class GoalForm {
     static formatGoalItemFormData(formControl: FormControl, goalId: number): GoalItemFormData {
         return {
             goal: goalId,
+            ...formControl.value
+        }
+    }
+
+    static formatMockGoalItemFormData(formControl: FormControl): GoalItemFormData {
+        return {
             ...formControl.value
         }
     }
